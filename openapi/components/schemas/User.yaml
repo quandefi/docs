@@ -1,0 +1,61 @@
+type: object
+properties:
+  user_id:
+    type: string
+    description: Unique user identifier
+    example: "auth0|21re2e7123j21id1jr3urjd3r"
+  email:
+    type: string
+    description: Users email address
+    example: "johndoe@gmail.com"
+  email_verified:
+    type: boolean
+    description: Flag to determine if the user has verified their email
+    example: true
+  name:
+    type: string
+    description: User first and last name
+    example: "John Doe"
+  nickname:
+    type: string
+    description: Username
+    example: "johndoe123"
+  picture:
+    type: string
+    description: User Avatar
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  created_at:
+    type: string
+    description: Datetime user profile was created
+    example: "2021-06-10T19:28:00.509Z"
+  updated_at:
+    type: string
+    description: Datetime user profile was updated last
+    example: "2021-06-16T00:24:54.461Z"
+  picture_profile:
+    type: string
+    description: Public user profile picture
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  picture_cover:
+    type: string
+    description: Public user cover picture
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  bio:
+    type: string
+    description: Public description about the user
+    example: "public description about the user"
+  twitter:
+    type: string
+    description: Twitter handle
+    example: johndoetweets
+  instagram:
+    type: string
+    description: Instagram handle
+    example: johndoegram
+  wallet_id:
+    type: string
+    description: Id of the wallet linked to the user
+    example: '519889162'
+  blockchain_addresses:
+    type: array
+    description: Public blockchain addressses linked to user. Can be Flow or Ethereum addresses.

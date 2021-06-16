@@ -1,0 +1,67 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: Quandefi
+  termsOfService: 'https://quanwallet.io/terms/'
+  contact:
+    email: contact@quanwallet.io
+    url: 'http://quanwallet.io/contact'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://redocly.github.io/openapi-template/logo.png'
+  description: >
+
+    # Introduction
+
+    This is the entrypoint to the Quandefi ecosystem.
+
+externalDocs:
+  description: Here is an example product that has integrated the Quan API
+  url: 'notables.co'
+tags:
+  - name: Users
+    description: Operations about users
+  - name: Products
+    description: Operations about products
+  - name: Collections
+    description: Operations about collections
+  # - name: Orders
+  #   description: Operations about orders
+  # - name: Wallets
+  #   description: Operations about wallets
+  # - name: Payments
+  #   description: Operations about payments
+  # - name: Payouts
+  #   description: Operations about payouts
+servers:
+  - url: 'https://quanwallet.io'
+paths:
+  '/users/{user_id}':
+    $ref: 'paths/users@{user_id}.yaml'
+  '/products':
+    $ref: paths/products.yaml
+  '/products/collections':
+    $ref: paths/products@collections.yaml
+  # '/assets/{id}':
+  #   $ref: 'paths/assets@{id}.yaml'
+  # '/assets/{id}/transactions':
+  #   $ref: 'paths/assets@{id}@transactions.yaml'
+components:
+  securitySchemes:
+    main_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'http://example.com/api/oauth/dialog'
+          scopes:
+            'read:users': read users info
+            'write:users': modify or remove users
+            'read:products': read products info
+            'write:products': modify or remove products
+            # 'read:collections': read collections info
+            # 'write:collections': modify or remove collections
+    basic_auth:
+      type: http
+      scheme: basic

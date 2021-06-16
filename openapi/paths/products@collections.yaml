@@ -1,0 +1,88 @@
+post:
+  tags:
+  - Collections
+  summary: Create an colection
+  description: Create a new colection with a list of assets. Requester must own all assets.
+  operationId: createCollection
+  security:
+    - main_auth:
+        - 'write:colections'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: ../components/schemas/Collection.yaml
+          required:
+            - title
+            - description
+            - image
+            - creator
+            - start_date
+            - end_date
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Collection.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+
+get:
+  tags:
+    - Collections
+  summary: Get a list of colections
+  description: Get a list of colections based on the query parameters.
+  operationId: listCollections
+  parameters:
+    - in: query
+      name: title
+      schema:
+        type: string
+        description: Show custom collections with a given title.
+    - in: query
+      name: product_id
+      schema:
+        type: string
+        description: Show custom collections that include a given product.
+    - in: query
+      name: handle
+      schema:
+        type: string
+        description: Filter by custom collection handle.
+    - in: query
+      name: published_status
+      schema:
+        type: string
+        description: Show custom collectsion with a given published status.
+        enum: [published, unpublished, any]
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        description: Limit. Defaults to 50, capped at 250.
+        default: 50
+  responses: 
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Collection.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorNotFound.yaml

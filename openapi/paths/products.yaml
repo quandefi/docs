@@ -1,0 +1,125 @@
+post:
+  tags:
+  - Products
+  summary: Create a product
+  description: Create a new product.
+  operationId: createProduct
+  security:
+    - main_auth:
+        - 'write:products'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          properties:
+              title:
+                type: string
+                example: Kill Bill
+              description:
+                type: string
+                example: Girl in the space
+              image:
+                type: string
+                example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+              product_type:
+                type: string
+                enum: [sale, auction]
+              status:
+                type: string
+                enum: [active, archived, draft]
+              creator:
+                type: string
+                example: miramax
+              tags:
+                type: array
+                items:
+                - enum: [opensea, notables, featured, sports, art, film, music]
+              variants:
+                type: array
+                items:
+                  $ref: ../components/schemas/ProductVariant.yaml
+          required:
+            - title
+            - description
+            - image
+            - product_type
+            - status
+            - creator
+            - tags
+            - variants
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+
+get:
+  tags:
+    - Products
+  summary: Get a list of products
+  description: Get a list of products based on the query parameters.
+  operationId: listProducts
+  parameters:
+    - in: query
+      name: product_type
+      schema:
+        type: string
+        description: Limit response to a product_type. Case sensitive.
+        example: auction
+    - in: query
+      name: tags
+      schema:
+        type: string
+        description: Limit response to a product_type.
+        enum: [opensea, notables, featured, sports, art, film, music]
+    - in: query
+      name: collection
+      schema:
+        type: string
+        description: Limit response to products of a collection. Case sensitive and must match the collection name exactly. Will return all products in a collection.
+        example: Race Day 2021
+    - in: query
+      name: creator
+      schema:
+        type: string
+        description: Limit response to products of a creator. Case sensitive and must match the creator name exactly.
+        example: lewishamilton
+    - in: query
+      name: status
+      schema:
+        type: boolean
+        description: Limit response to only products of a specific status.
+        enum: [active, archived, draft]
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        description: Limit. Defaults to 20, capped at 50.
+        default: 20
+  responses: 
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorNotFound.yaml

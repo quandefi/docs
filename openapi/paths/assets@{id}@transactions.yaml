@@ -1,0 +1,35 @@
+post:
+  tags:
+  - Assets
+  summary: Create an asset transaction.
+  description: Transfers ownship of blockchain asset from requesting user to 'to' blockchain address. This can only be done by an authenticated user that owns the asset.
+  operationId: createAssetTransfer
+  parameters:
+    - name: id
+      in: path
+      description: The id of the asset that needs to be transacted.
+      required: true
+      schema:
+        type: string
+        example: cd3c2652-4cab-45ef-a805-330aebd36815
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: ../components/schemas/AssetTransaction.yaml
+          required:
+            - name
+            - assets
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AssetTransaction.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml

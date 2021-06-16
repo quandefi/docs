@@ -1,0 +1,151 @@
+post:
+  tags:
+  - Assets
+  summary: Create an asset
+  description: Create a new asset.
+  operationId: createAsset
+  security:
+    - main_auth:
+        - 'write:assets'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          properties:
+              name:
+                type: string
+                example: Kill Bill
+              description:
+                type: string
+                example: Girl in the space
+              image_url:
+                type: string
+                example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+              quantity:
+                type: integer
+                example: 1
+                minimum: 1
+                maximum: 1000
+              marketplace:
+                type: string
+                example: notables
+              userId:
+                type: string
+                example: johndoe
+              chain:
+                type: string
+                enum: [FLOW, ETHEREUM]
+          required:
+            - name
+            - description
+            - image_url
+            - marketplace
+            - owner_username
+            - quantity
+            - chain
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Asset.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+
+get:
+  tags:
+    - Assets
+  summary: Get a list of assets
+  description: Get a list of assets based on the query parameters.
+  operationId: getAssets
+  parameters:
+    - in: query
+      name: marketplace
+      schema:
+        type: string
+        description: Limit response to assets of a marketplace. Case sensitive and must match the marketplace name exactly. Will return all assets in a marketplace.
+        example: notables
+    - in: query
+      name: owner
+      schema:
+        type: string
+        description: The username of the owner of the assets
+        example: miramax
+    - in: query
+      name: collection
+      schema:
+        type: string
+        description: Limit response to assets of a collection. Case sensitive and must match the collection name exactly. Will return all assets in a collection.
+        example: killbill
+    - in: query
+      name: is_featured
+      schema:
+        type: boolean
+        description: Limit response to only assets marked as featured.
+        example: true
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        description: Limit. Defaults to 20, capped at 50.
+        default: 20
+  responses: 
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Asset.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorNotFound.yaml
+
+put:
+  tags:
+    - Assets
+  summary: Update an asset
+  description: This can only be done by the logged in asset.
+  operationId: updateAsset
+  security:
+    - main_auth:
+        - 'write:assets'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Asset.yaml
+    description: Updated asset object
+    required: true
+  responses: 
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Asset.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorNotFound.yaml

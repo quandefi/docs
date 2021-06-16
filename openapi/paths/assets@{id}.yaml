@@ -1,0 +1,36 @@
+get:
+  tags:
+    - Assets
+  summary: Get asset by id
+  description: Retrieves the details of an existing asset using its id. You need only supply the unique asset identifier that was returned upon asset creation.
+  operationId: getAsset
+  security:
+    - main_auth:
+        - 'read:assets'
+  parameters:
+    - name: id
+      in: path
+      description: The id of the asset that needs to be fetched.
+      required: true
+      schema:
+        type: string
+        example: cd3c2652-4cab-45ef-a805-330aebd36815
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Asset.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorNotFound.yaml

@@ -1,0 +1,35 @@
+type: object
+properties:
+  id:
+    description: Unique identifier for the asset
+    type: integer
+    example: 7029800501417
+  title:
+    type: string
+    example: F1 Race Helmet
+  handle:
+    type: stirng
+    example: f1-race-helmet
+  description:
+    type: string
+    example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  image:
+    type: string
+    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+  product_type:
+    type: string
+    enum: [sale, auction]
+  status:
+    type: string
+    enum: [active, archived, draft]
+  creator:
+    type: string
+    example: miramax
+  tags:
+    type: list
+    items:
+    - enum: [opensea, notables, featured, sports, art, film, music]
+  variants:
+    type: array
+    items:
+    - $ref: ./ProductVariant.yaml

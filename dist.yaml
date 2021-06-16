@@ -1,0 +1,551 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: Quandefi
+  termsOfService: 'https://quanwallet.io/terms/'
+  contact:
+    email: contact@quanwallet.io
+    url: 'http://quanwallet.io/contact'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://redocly.github.io/openapi-template/logo.png'
+  description: |
+
+    # Introduction
+    This is the entrypoint to the Quandefi ecosystem.
+externalDocs:
+  description: Here is an example product that has integrated the Quan API
+  url: notables.co
+tags:
+  - name: Users
+    description: Operations about users
+  - name: Products
+    description: Operations about products
+  - name: Collections
+    description: Operations about collections
+servers:
+  - url: 'https://quanwallet.io'
+paths:
+  '/users/{user_id}':
+    get:
+      tags:
+        - Users
+      summary: Get user by user id
+      description: Get user by user id provided from the authentication method
+      operationId: getUser
+      parameters:
+        - name: user_id
+          in: path
+          description: The user id of that user that needs to be fetched
+          required: true
+          schema:
+            type: string
+      security:
+        - main_auth:
+            - 'read:users'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+    put:
+      tags:
+        - Users
+      summary: Update user
+      description: Update the user profile. This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+        - name: user_id
+          in: path
+          description: The id of the user that needs to be updated
+          required: true
+          schema:
+            type: string
+      security:
+        - main_auth:
+            - 'write:users'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+  /products:
+    post:
+      tags:
+        - Products
+      summary: Create a product
+      description: Create a new product.
+      operationId: createProduct
+      security:
+        - main_auth:
+            - 'write:products'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                title:
+                  type: string
+                  example: Kill Bill
+                description:
+                  type: string
+                  example: Girl in the space
+                image:
+                  type: string
+                  example: >-
+                    https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+                product_type:
+                  type: string
+                  enum:
+                    - sale
+                    - auction
+                status:
+                  type: string
+                  enum:
+                    - active
+                    - archived
+                    - draft
+                creator:
+                  type: string
+                  example: miramax
+                tags:
+                  type: array
+                  items:
+                    - enum:
+                        - opensea
+                        - notables
+                        - featured
+                        - sports
+                        - art
+                        - film
+                        - music
+                variants:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ProductVariant'
+              required:
+                - title
+                - description
+                - image
+                - product_type
+                - status
+                - creator
+                - tags
+                - variants
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+    get:
+      tags:
+        - Products
+      summary: Get a list of products
+      description: Get a list of products based on the query parameters.
+      operationId: listProducts
+      parameters:
+        - in: query
+          name: product_type
+          schema:
+            type: string
+            description: Limit response to a product_type. Case sensitive.
+            example: auction
+        - in: query
+          name: tags
+          schema:
+            type: string
+            description: Limit response to a product_type.
+            enum:
+              - opensea
+              - notables
+              - featured
+              - sports
+              - art
+              - film
+              - music
+        - in: query
+          name: collection
+          schema:
+            type: string
+            description: >-
+              Limit response to products of a collection. Case sensitive and
+              must match the collection name exactly. Will return all products
+              in a collection.
+            example: Race Day 2021
+        - in: query
+          name: creator
+          schema:
+            type: string
+            description: >-
+              Limit response to products of a creator. Case sensitive and must
+              match the creator name exactly.
+            example: lewishamilton
+        - in: query
+          name: status
+          schema:
+            type: boolean
+            description: Limit response to only products of a specific status.
+            enum:
+              - active
+              - archived
+              - draft
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: 'Limit. Defaults to 20, capped at 50.'
+            default: 20
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+  /products/collections:
+    post:
+      tags:
+        - Collections
+      summary: Create an colection
+      description: >-
+        Create a new colection with a list of assets. Requester must own all
+        assets.
+      operationId: createCollection
+      security:
+        - main_auth:
+            - 'write:colections'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Collection'
+              required:
+                - title
+                - description
+                - image
+                - creator
+                - start_date
+                - end_date
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+    get:
+      tags:
+        - Collections
+      summary: Get a list of colections
+      description: Get a list of colections based on the query parameters.
+      operationId: listCollections
+      parameters:
+        - in: query
+          name: title
+          schema:
+            type: string
+            description: Show custom collections with a given title.
+        - in: query
+          name: product_id
+          schema:
+            type: string
+            description: Show custom collections that include a given product.
+        - in: query
+          name: handle
+          schema:
+            type: string
+            description: Filter by custom collection handle.
+        - in: query
+          name: published_status
+          schema:
+            type: string
+            description: Show custom collectsion with a given published status.
+            enum:
+              - published
+              - unpublished
+              - any
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            description: 'Limit. Defaults to 50, capped at 250.'
+            default: 50
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+components:
+  securitySchemes:
+    main_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'http://example.com/api/oauth/dialog'
+          scopes:
+            'read:users': read users info
+            'write:users': modify or remove users
+            'read:products': read products info
+            'write:products': modify or remove products
+    basic_auth:
+      type: http
+      scheme: basic
+  schemas:
+    User:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: Unique user identifier
+          example: auth0|21re2e7123j21id1jr3urjd3r
+        email:
+          type: string
+          description: Users email address
+          example: johndoe@gmail.com
+        email_verified:
+          type: boolean
+          description: Flag to determine if the user has verified their email
+          example: true
+        name:
+          type: string
+          description: User first and last name
+          example: John Doe
+        nickname:
+          type: string
+          description: Username
+          example: johndoe123
+        picture:
+          type: string
+          description: User Avatar
+          example: >-
+            https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png
+        created_at:
+          type: string
+          description: Datetime user profile was created
+          example: '2021-06-10T19:28:00.509Z'
+        updated_at:
+          type: string
+          description: Datetime user profile was updated last
+          example: '2021-06-16T00:24:54.461Z'
+        picture_profile:
+          type: string
+          description: Public user profile picture
+          example: >-
+            https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png
+        picture_cover:
+          type: string
+          description: Public user cover picture
+          example: >-
+            https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png
+        bio:
+          type: string
+          description: Public description about the user
+          example: public description about the user
+        twitter:
+          type: string
+          description: Twitter handle
+          example: johndoetweets
+        instagram:
+          type: string
+          description: Instagram handle
+          example: johndoegram
+        wallet_id:
+          type: string
+          description: Id of the wallet linked to the user
+          example: '519889162'
+        blockchain_addresses:
+          type: array
+          description: >-
+            Public blockchain addressses linked to user. Can be Flow or Ethereum
+            addresses.
+    ProductVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 40647083557033
+        edition:
+          type: integer
+          example: 1
+        edition_of:
+          type: integer
+          example: 3
+        price:
+          type: integer
+          example: 0
+        blockchain:
+          type: string
+          example: rinkeby
+        contract_address:
+          type: string
+          example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
+        token_id:
+          type: integer
+          example: 6780
+    Product:
+      type: object
+      properties:
+        id:
+          description: Unique identifier for the asset
+          type: integer
+          example: 7029800501417
+        title:
+          type: string
+          example: F1 Race Helmet
+        handle:
+          type: stirng
+          example: f1-race-helmet
+        description:
+          type: string
+          example: >-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+        image:
+          type: string
+          example: >-
+            https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+        product_type:
+          type: string
+          enum:
+            - sale
+            - auction
+        status:
+          type: string
+          enum:
+            - active
+            - archived
+            - draft
+        creator:
+          type: string
+          example: miramax
+        tags:
+          type: list
+          items:
+            - enum:
+                - opensea
+                - notables
+                - featured
+                - sports
+                - art
+                - film
+                - music
+        variants:
+          type: array
+          items:
+            - $ref: '#/components/schemas/ProductVariant'
+    ErrorForbidden:
+      type: object
+      properties:
+        statusCode:
+          description: Status Code
+          type: integer
+          example: 403
+        message:
+          description: Error Message
+          type: string
+          example: Forbidden
+    ErrorNotFound:
+      type: object
+      properties:
+        statusCode:
+          description: Status Code
+          type: integer
+          example: 404
+        message:
+          description: Error Message
+          type: string
+          example: Not Found
+    Collection:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the collection
+        handle:
+          type: integer
+          description: Unique human readable identifier for the collection
+          example: british-grand-prix-2021
+        title:
+          type: string
+          example: British Grand Prix 2021
+        description:
+          type: string
+          example: Join us for the 2021 British Grand Prix at Silverstone!
+        image:
+          type: string
+          example: >-
+            https://cdn.shopify.com/s/files/1/0576/8632/7465/collections/thumb-1920-906632.jpg?v=1623638467
+        creator:
+          type: string
+          description: Collection creator username
+          example: lewishamilton
+        start_date:
+          type: string
+          format: date-time
+          description: Datetime the products in the collection go up for sale
+        end_date:
+          type: string
+          format: date-time
+          description: Datetime the products in the collections end

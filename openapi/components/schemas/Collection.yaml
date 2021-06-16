@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    type: integer
+    description: Unique identifier for the collection
+  handle:
+    type: integer
+    description: Unique human readable identifier for the collection
+    example: british-grand-prix-2021
+  title:
+    type: string
+    example: British Grand Prix 2021
+  description:
+    type: string
+    example: Join us for the 2021 British Grand Prix at Silverstone!
+  image: 
+    type: string
+    example: "https://cdn.shopify.com/s/files/1/0576/8632/7465/collections/thumb-1920-906632.jpg?v=1623638467"
+  creator:
+    type: string
+    description: Collection creator username
+    example: lewishamilton
+  start_date:
+    type: string
+    format: date-time
+    description: Datetime the products in the collection go up for sale
+  end_date:
+    type: string
+    format: date-time
+    description: Datetime the products in the collections end

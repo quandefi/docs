@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Users
+  summary: Get user by user id
+  description: Get user by user id provided from the authentication method
+  operationId: getUser
+  parameters:
+    - name: user_id
+      in: path
+      description: The user id of that user that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:users'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/User.yaml
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
+put:
+  tags:
+    - Users
+  summary: Update user
+  description: Update the user profile. This can only be done by the logged in user.
+  operationId: updateUser
+  parameters:
+    - name: user_id
+      in: path
+      description: The id of the user that needs to be updated
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'write:users'
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: Bad request
+    '404':
+      description: Not found
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/User.yaml
+    description: Updated user object
+    required: true

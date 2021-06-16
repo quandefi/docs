@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    description: Unique identifier for the asset transaction
+    type: string
+    minLength: 36
+    example: cd3c2652-4cab-45ef-a805-330aebd36815
+  asset:
+    $ref: ./Asset.yaml
+  from:
+    $ref: ./User.yaml 
+  to:
+    $ref: ./User.yaml 
