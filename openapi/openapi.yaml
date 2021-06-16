@@ -6,11 +6,8 @@ info:
   contact:
     email: contact@quanwallet.io
     url: 'http://quanwallet.io/contact'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
+    url: 'https://quandefi.github.io/docs/logo.png'
   description: >
 
     # Introduction
@@ -19,7 +16,7 @@ info:
 
 externalDocs:
   description: Here is an example product that has integrated the Quan API
-  url: 'notables.co'
+  url: 'https://notables.co'
 tags:
   - name: Users
     description: Operations about users
