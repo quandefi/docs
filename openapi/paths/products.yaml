@@ -72,7 +72,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Product.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/Product.yaml
     '400':
       description: Bad request
     '403':
