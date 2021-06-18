@@ -2,69 +2,59 @@ type: object
 properties:
   id:
     type: string
-    description: Unique identifier for the product
-    example: sdf12-d1d2d-2d12-2d2
+    description: Unique identifier for the collection
   title:
     type: string
-    desription: TBD
     example: F1 Race Helmet
   description:
     type: string
-    desription: TBD
     example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   image_url:
     type: string
-    desription: TBD
     example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
   image_preview_url:
     type: string
-    desription: TBD
     example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
   image_thumbnail_url:
     type: string
-    desription: TBD
     example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
   background_color:
     type: string
-    desription: Color to display behind the image on the product page 
+    description: Color to display behind the image on the product page 
     example: black
   type:
     type: string
-    desription: TBD
     example: TBD
   blockchain:
     type: string
-    desription: TBD
     example: TBD
   contract_address:
     type: string
-    desription: TBD
     example: TBD
   token_metadata:
     type: string
-    desription: TBD
     example: TBD
   creator:
     $ref: ./UserPublic.yaml
   featured:
     type: string
-    desription: 
-    example: 
+    description: Boolean indicating if the product is featured or not. Featured products get better positioning on the marketplaces.
+    example: True
   num_editions:
     type: integer
-    desription: Number of editions/variations of this product. The lower this number, the more unique it is.
+    description: Number of editions/variations of this product. The lower this number, the more unique it is.
     example: 1
   editions:
     type: array
     items:
-    - $ref: ./ProductEdition.yaml
+      $ref: ./ProductEdition.yaml
   tags:
     type: array
     items:
-    - enum: [sports, art, film, music]
+    - enum: ['sports', 'art', 'music']
   create_date:
-    type: stirng
+    type: string
     format: date-time
   update_date:
-    type: stirng
+    type: string
     format: date-time

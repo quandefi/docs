@@ -22,8 +22,8 @@ tags:
     description: Operations about users
   - name: Products
     description: Operations about products
-  - name: Collections
-    description: Operations about collections
+  # - name: Collections
+  #   description: Operations about collections
   # - name: Orders
   #   description: Operations about orders
   # - name: Wallets
@@ -39,8 +39,8 @@ paths:
     $ref: 'paths/users@{user_id}.yaml'
   '/products':
     $ref: paths/products.yaml
-  '/products/collections':
-    $ref: paths/products@collections.yaml
+  # '/products/collections':
+  #   $ref: paths/products@collections.yaml
   # '/assets/{id}':
   #   $ref: 'paths/assets@{id}.yaml'
   # '/assets/{id}/transactions':
