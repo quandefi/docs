@@ -25,7 +25,7 @@ get:
       description: Forbidden
     '404':
       description: Not found
-put:
+patch:
   tags:
     - Users
   summary: Update user

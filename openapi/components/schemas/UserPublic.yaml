@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique user identifier
+    example: "auth0|21re2e7123j21id1jr3urjd3r"
+  username:
+    type: string
+    description: Public username
+    example: "lewishamilton"
+  image_avatar:
+    type: string
+    description: Public user profile picture
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"

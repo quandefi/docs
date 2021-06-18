@@ -1,0 +1,23 @@
+type: object
+properties:
+  token_id:
+    type: integer
+    example: 6780
+  edition:
+    type: integer
+    example: 1
+  edition_of:
+    type: integer
+    example: 3
+  owner:
+    $ref: ./UserPublic.yaml
+  permalink:
+    type: string
+    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+  external_link:
+    type: string
+    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+  listings:
+    type: array
+    items:
+    - $ref: ./Listing.yaml

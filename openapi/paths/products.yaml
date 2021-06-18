@@ -12,41 +12,7 @@ post:
       'application/json':
         schema:
           properties:
-              title:
-                type: string
-                example: Kill Bill
-              description:
-                type: string
-                example: Girl in the space
-              image:
-                type: string
-                example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
-              product_type:
-                type: string
-                enum: [sale, auction]
-              status:
-                type: string
-                enum: [active, archived, draft]
-              creator:
-                type: string
-                example: miramax
-              tags:
-                type: array
-                items:
-                - enum: [opensea, notables, featured, sports, art, film, music]
-              variants:
-                type: array
-                items:
-                  $ref: ../components/schemas/ProductVariant.yaml
-          required:
-            - title
-            - description
-            - image
-            - product_type
-            - status
-            - creator
-            - tags
-            - variants
+            $ref: ../components/schemas/Edition.yaml
   responses: 
     '200':
       description: Success

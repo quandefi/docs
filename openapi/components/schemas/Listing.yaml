@@ -1,0 +1,28 @@
+type: object
+properties:
+  primary:
+    type: boolean
+    description: Boolean indicating if the listing is a primary sale of now. Primary sales are listings posted directly by the creator.
+    example: True 
+  start_date:
+    type: string
+    format: date-time
+    description: Date and time that the listing is opened up for buy orders
+  end_date:
+    type: string
+    format: date-time
+    description: Date and time that the listing closes for buy orders
+  included_description:
+    type: string
+    description: Short blurb about what the winner of the listing will receive
+    example: The winner of this listing will receive special behind the scenes footage. 
+  charity_description:
+    type: string
+    description: Short blurb about what the proceeds of the listing will go to (if applicable)
+    example: 100% of the proceeds of this listing will go to X Foundation. 
+  pricing:
+    $ref: ./Pricing.yaml
+  tags:
+    type: array
+    items:
+    - enum: [sports, art, film, music]
