@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Products
+  summary: Get product by product id
+  description: Get product details by id.
+  operationId: getProduct
+  parameters:
+    - name: id
+      in: path
+      description: The id of the product that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:products'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Product.yaml
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
+# patch:
+#   tags:
+#     - Products
+#   summary: Update product
+#   description: Update the product profile. This can only be done by the logged in product.
+#   operationId: updateProduct
+#   parameters:
+#     - name: product_id
+#       in: path
+#       description: The id of the product that needs to be updated
+#       required: true
+#       schema:
+#         type: string
+#   security:
+#     - main_auth:
+#         - 'write:products'
+#   requestBody:
+#     content:
+#       application/json:
+#         schema:
+#           $ref: ../components/schemas/Product.yaml
+#     description: Updated product object
+#     required: true
+#   responses:
+#     '200':
+#       description: OK
+#     '400':
+#       description: Bad request
+#     '403':
+#       description: Forbidden
+#     '404':
+#       description: Not found

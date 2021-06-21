@@ -39,6 +39,8 @@ paths:
     $ref: 'paths/users@{user_id}.yaml'
   '/products':
     $ref: paths/products.yaml
+  '/products/{id}':
+    $ref: 'paths/products@{id}.yaml'
   # '/products/collections':
   #   $ref: paths/products@collections.yaml
   # '/assets/{id}':
