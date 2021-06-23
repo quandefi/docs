@@ -40,11 +40,11 @@ get:
         description: Show featured users
         enum: ['true', 'false']
     - in: query
-    name: is_creator
-    schema:
-      type: string
-      description: Show creators
-      enum: ['true', 'false']
+      name: is_creator
+      schema:
+        type: string
+        description: Show creators
+        enum: ['true', 'false']
   responses: 
     '200':
       description: Ok
