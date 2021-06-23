@@ -21,7 +21,7 @@ properties:
   subtype:
     type: string
     description: Order subtype.
-    enum: [auction, fixed-price, bid, purchase]
+    enum: [auction, fixed_price, bid, purchase]
   market:
     type: string
     description: Name of the marketplace the order was placed on
