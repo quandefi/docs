@@ -1,9 +1,11 @@
 type: object
 properties:
-  id:
+  product_id:
     type: string
     description: Unique identifier for the product
-    example: 'auth0|232d323f3r23r23r232434'
+    example: '232d323f3r23r23r232434'
+  creator:
+    $ref: ./UserPublic.yaml
   title:
     type: string
     description: Title of the product
@@ -12,6 +14,14 @@ properties:
     type: string
     description: Short blurb explaining the product
     example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  type:
+    type: string
+    description: Type of product. Can be either flow or pro.
+    example: pro
+  tags:
+    type: array
+    items:
+    - enum: ['sports', 'art', 'music']
   image_url:
     type: string
     description: URL of the image of the product
@@ -24,15 +34,15 @@ properties:
     type: string
     description: URL of the image that can be used to preview the product in thumbnail form
     example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
-  background_color:
+  image_background_color:
     type: string
     description: Color to display behind the image on the product page 
     example: black
-  type:
-    type: string
-    description: Type of product. Can be either flow or pro.
-    example: pro
   blockchain:
+    type: string
+    description: Blockchain that the product lives on. Currently support ethereum or flow.
+    example: ethereum
+  network:
     type: string
     description: Blockchain that the product lives on. Currently support ethereum or flow.
     example: ethereum
@@ -44,27 +54,41 @@ properties:
     type: string
     description: URL of the token metadata
     example: ipfs://swasdf23r3ed123e12ed12e1212
-  creator:
-    $ref: ./UserPublic.yaml
-  featured:
-    type: string
-    description: Boolean indicating if the product is featured or not. Featured products get better positioning on the marketplaces.
-    example: True
-  num_editions:
+  editions_total:
     type: integer
     description: Number of editions/variations of this product. The lower this number, the more unique it is.
     example: 1
   editions:
     type: array
     items:
-      $ref: ./ProductEdition.yaml
-  tags:
-    type: array
-    items:
-    - enum: ['sports', 'art', 'music']
-  create_date:
+      $ref: ./Edition.yaml
+  fee_transfer_pct:
+    type: integer
+    description: Percent of transaction that goes to the creator whenever the product editions changes ownership.
+    example: .0025
+  price_last_sale:
+    type: integer
+    description: Last sale amount for any edition of this product.
+    example: 1
+  price_top_bid:
+    type: integer
+    description: Highest bid for any edition of this product.
+    example: 1
+  is_featured:
+    type: string
+    description: Boolean indicating if the product is featured or not. Featured products get better positioning on the marketplaces.
+    example: True
+  is_live:
+    type: string
+    description: Boolean indicating if the product is live or not. Live products have open sell orders.
+    example: True
+  date_open:
     type: string
     format: date-time
-  update_date:
+    description: Datetime that the product will be publicly released.
+  date_created:
+    type: string
+    format: date-time
+  date_updated:
     type: string
     format: date-time

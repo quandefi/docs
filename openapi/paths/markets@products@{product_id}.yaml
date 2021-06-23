@@ -1,11 +1,11 @@
 get:
   tags:
-    - Products
+    - Markets
   summary: Get product by product id
   description: Get product details by id.
   operationId: getProduct
   parameters:
-    - name: id
+    - name: product_id
       in: path
       description: The id of the product that needs to be fetched
       required: true
@@ -29,7 +29,7 @@ get:
       description: Not found
 # patch:
 #   tags:
-#     - Products
+#     - Markets
 #   summary: Update product
 #   description: Update the product profile. This can only be done by the logged in product.
 #   operationId: updateProduct

@@ -1,0 +1,42 @@
+type: object
+properties:
+  product_id:
+    type: string
+    description: Unique identifier for the product
+    example: '232d323f3r23r23r232434'
+  edition_id:
+    type: string
+    description: Unique identifier for the edition
+    example: 1
+  editions_total:
+    type: integer
+    example: 3
+  token_id:
+    type: integer
+    example: 6780
+  creator:
+    $ref: ./UserPublic.yaml
+  owner:
+    $ref: ./UserPublic.yaml
+  sell_orders:
+    type: array
+    items:
+    - $ref: ./Order.yaml
+  is_featured:
+    type: string
+    description: Boolean indicating if the edition is featured or not. Featured editions get better positioning on the marketplaces.
+    example: True
+  is_live:
+    type: string
+    description: Boolean indicating if the edition is live or not. Live editions have open sell orders.
+    example: True
+  date_open:
+    type: string
+    format: date-time
+    description: Datetime that the edition will be publicly released.
+  date_created:
+    type: string
+    format: date-time
+  date_updated:
+    type: string
+    format: date-time

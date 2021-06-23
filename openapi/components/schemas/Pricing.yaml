@@ -4,31 +4,27 @@ properties:
     type: string
     description: The source determines where the pricing information comes from. If it is internal, the below fields should be used. If it is another source like OpenSea, we should get the pricing information from them.
     example: opensea
-  type:
-    type: string
-    description: Type of pricing infromation. Can be auction or fixed-price.
-    example: auction
-  starting_price:
-    type: string
+  price_starting:
+    type: integer
     description: Only applicable for internal auctions.This is the starting bid of the auction.
-    example: TBD
-  reserve_price:
-    type: string
+    example: 100.00
+  price_reserve:
+    type: integer
     description: Only applicable for internal auctions.This is the reserve bid of the auction. If auction ends and current bid is less then reserve bid, there is no transfer.
-    example: TBD
-  current_price:
-    type: string
+    example: 100.00
+  price_current:
+    type: integer
     description: Only applicable for internal auctions. This is the current bid of the auction.
-    example: TBD
-  fixed_price:
-    type: string
+    example: 100.00
+  price_fixed:
+    type: integer
     description: Only applicable for internal fixed-price. This is the purchase price.
     example: '100.00'
-  transaction_fee_pct:
+  fee_transaction_pct:
     type: integer
     description: Only applicable for internal auctions. This fee goes to the marketplace.
     example: 2.5
-  transfer_fee_pct:
+  fee_transfer_pct:
     type: integer
     description: Only applicable for internal auctions. This fee goes to the creator.
     example: 2.5

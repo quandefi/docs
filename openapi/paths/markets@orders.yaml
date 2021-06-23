@@ -1,17 +1,17 @@
 post:
   tags:
-  - Collections
-  summary: Create an colection
-  description: Create a new colection with a list of assets. Requester must own all assets.
-  operationId: createCollection
+  - Markets
+  summary: Create an order
+  description: Create a new order with a list of assets. Requester must own all assets.
+  operationId: createOrder
   security:
     - main_auth:
-        - 'write:colections'
+        - 'write:orders'
   requestBody:
     content:
       'application/json':
         schema:
-          $ref: ../components/schemas/Collection.yaml
+          $ref: ../components/schemas/Order.yaml
           required:
             - title
             - description
@@ -25,7 +25,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Collection.yaml
+            $ref: ../components/schemas/Order.yaml
     '403':
       description: Forbidden
       content:
@@ -35,26 +35,26 @@ post:
 
 get:
   tags:
-    - Collections
-  summary: Get a list of colections
-  description: Get a list of colections based on the query parameters.
-  operationId: listCollections
+    - Markets
+  summary: Get a list of orders
+  description: Get a list of orders based on the query parameters.
+  operationId: listOrders
   parameters:
     - in: query
       name: title
       schema:
         type: string
-        description: Show custom collections with a given title.
+        description: Show custom orders with a given title.
     - in: query
       name: product_id
       schema:
         type: string
-        description: Show custom collections that include a given product.
+        description: Show custom orders that include a given product.
     - in: query
       name: handle
       schema:
         type: string
-        description: Filter by custom collection handle.
+        description: Filter by custom order handle.
     - in: query
       name: published_status
       schema:
@@ -73,7 +73,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Collection.yaml
+            $ref: ../components/schemas/Order.yaml
     '403':
       description: Forbidden
       content:

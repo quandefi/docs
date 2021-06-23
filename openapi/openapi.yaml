@@ -20,33 +20,41 @@ externalDocs:
 tags:
   - name: Users
     description: Operations about users
-  - name: Products
+  - name: Markets
     description: Operations about products
-  # - name: Collections
-  #   description: Operations about collections
-  # - name: Orders
-  #   description: Operations about orders
-  # - name: Wallets
-  #   description: Operations about wallets
-  # - name: Payments
-  #   description: Operations about payments
-  # - name: Payouts
-  #   description: Operations about payouts
+  - name: Wallets
+    description: Operations about wallets
 servers:
   - url: 'https://quanwallet.io'
 paths:
+  '/users':
+    $ref: 'paths/users.yaml'
   '/users/{user_id}':
     $ref: 'paths/users@{user_id}.yaml'
-  '/products':
-    $ref: paths/products.yaml
-  '/products/{id}':
-    $ref: 'paths/products@{id}.yaml'
-  # '/products/collections':
-  #   $ref: paths/products@collections.yaml
-  # '/assets/{id}':
-  #   $ref: 'paths/assets@{id}.yaml'
-  # '/assets/{id}/transactions':
-  #   $ref: 'paths/assets@{id}@transactions.yaml'
+
+  '/markets/products':
+    $ref: 'paths/markets@products.yaml'
+  '/markets/products/{product_id}':
+    $ref: 'paths/markets@products@{product_id}.yaml'
+  '/markets/orders':
+    $ref: 'paths/markets@orders.yaml'
+  '/markets/orders/{order_id}':
+    $ref: 'paths/markets@orders@{order_id}.yaml'
+  '/markets/collections':
+    $ref: 'paths/markets@collections.yaml'
+  '/markets/collections/{collection_id}':
+    $ref: 'paths/markets@collections@{collection_id}.yaml'
+
+  # '/wallets':
+  #   $ref: paths/wallets.yaml
+  # '/wallets/{wallet_id}':
+  #   $ref: 'paths/wallets@{wallet_id}.yaml'
+
+  # '/blockchain/assets{id}':
+  #   $ref: 'paths/blockchain@assets{id}.yaml'
+  # '/blockchain/assets{id}/transactions':
+  #   $ref: 'paths/blockchain@assets{id}@transactions.yaml'
+
 components:
   securitySchemes:
     main_auth:

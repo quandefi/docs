@@ -1,16 +1,16 @@
 get:
   tags:
-    - Collections
-  summary: Get collection by id
-  description: Retrieves the details of an existing collection using its id. You need only supply the unique collection identifier that was returned upon collection creation.
-  operationId: getCollection
+    - Markets
+  summary: Get order by id
+  description: Retrieves the details of an existing order using its id. You need only supply the unique order identifier that was returned upon order creation.
+  operationId: getOrder
   security:
     - main_auth:
-        - 'read:collections'
+        - 'read:orders'
   parameters:
-    - name: id
+    - name: order_id
       in: path
-      description: The id of the collection that needs to be fetched.
+      description: The id of the order that needs to be fetched.
       required: true
       schema:
         type: string
@@ -21,7 +21,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Collection.yaml
+            $ref: ../components/schemas/Order.yaml
     '403':
       description: Forbidden
       content:

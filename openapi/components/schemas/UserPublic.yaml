@@ -1,6 +1,6 @@
 type: object
 properties:
-  id:
+  user_id:
     type: string
     description: Unique user identifier
     example: "auth0|21re2e7123j21id1jr3urjd3r"
@@ -8,7 +8,53 @@ properties:
     type: string
     description: Public username
     example: "lewishamilton"
-  image_avatar:
+  image_url:
     type: string
-    description: Public user profile picture
+    description: Url of the users profile picture
     example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  image_preview_url:
+    type: string
+    description: Url of the users profile picture
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  image_thumbnail_url:
+    type: string
+    description: Url of the users profile picture
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  image_background_color:
+    type: string
+    description: Url of the users profile picture
+    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
+  products_created:
+    type: array
+    items:
+    - $ref: ./Product.yaml
+  product_editions_owned:
+    type: array
+    items:
+    - $ref: ./Edition.yaml
+  orders:
+    type: array
+    items:
+    - $ref: ./Order.yaml
+  is_featured:
+    type: string
+    description: Boolean indicating if the user is featured or not. Featured users get better positioning on the marketplaces.
+    example: True
+  is_verified:
+    type: string
+    description: Boolean indicating if the user is verified or not. Featured users get better positioning on the marketplaces.
+    example: True
+  is_live:
+    type: string
+    description: Boolean indicating if the user is live or not. Live users have open sell orders.
+    example: True
+  date_open:
+    type: string
+    format: date-time
+    description: Datetime that the user will be publicly released.
+  date_created:
+    type: string
+    format: date-time
+  date_updated:
+    type: string
+    format: date-time

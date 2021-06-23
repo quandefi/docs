@@ -3,28 +3,57 @@ properties:
   id:
     type: integer
     description: Unique identifier for the collection
-  handle:
-    type: integer
-    description: Unique human readable identifier for the collection
-    example: british-grand-prix-2021
+  creator:
+    $ref: ./UserPublic.yaml
+  products:
+    type: array
+    items:
+    - $ref: ./Product.yaml
   title:
     type: string
     example: British Grand Prix 2021
   description:
     type: string
     example: Join us for the 2021 British Grand Prix at Silverstone!
-  image: 
+  image_url:
     type: string
-    example: "https://cdn.shopify.com/s/files/1/0576/8632/7465/collections/thumb-1920-906632.jpg?v=1623638467"
-  creator:
+    description: URL of the image of the product
+    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+  image_preview_url:
     type: string
-    description: Collection creator username
-    example: lewishamilton
-  start_date:
+    description: URL of the image that can be used to preview the product
+    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+  image_thumbnail_url:
+    type: string
+    description: URL of the image that can be used to preview the product in thumbnail form
+    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+  image_background_color:
+    type: string
+    description: Color to display behind the image on the product page 
+    example: black
+  tags:
+    type: array
+    items:
+    - enum: ['sports', 'art', 'music']
+  is_featured:
+    type: string
+    description: Boolean indicating if the product is featured or not. Featured products get better positioning on the marketplaces.
+    example: True
+  is_live:
+    type: string
+    description: Boolean indicating if the product is live or not. Live products have open sell orders.
+    example: True
+  date_open:
     type: string
     format: date-time
-    description: Datetime the products in the collection go up for sale
-  end_date:
+    description: Datetime that the collection will be open to the public.
+  date_close:
     type: string
     format: date-time
-    description: Datetime the products in the collections end
+    description: Datetime that the collection will close.
+  date_created:
+    type: string
+    format: date-time
+  date_updated:
+    type: string
+    format: date-time
