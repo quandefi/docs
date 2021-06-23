@@ -1,28 +1,72 @@
 type: object
 properties:
-  primary:
+
+
+  product_id:
+    type: string
+    description: Unique identifier for the product
+    example: '232d323f3r23r23r232434'
+  edition_id:
+    type: string
+    description: Unique identifier for the edition
+    example: 1
+  order_id:
+    type: string
+    description: Unique identifier for the order
+    example: 1
+  type:
+    type: string
+    description: Order type.
+    enum: [buy, sell]
+  subtype:
+    type: string
+    description: Order subtype.
+    enum: [auction, fixed-price, bid, purchase]
+  market:
+    type: string
+    description: Name of the marketplace the order was placed on
+    enum: [notables, indienft]
+  is_closing_extendable:
     type: boolean
-    description: Boolean indicating if the listing is a primary sale of now. Primary sales are listings posted directly by the creator.
-    example: True 
-  start_date:
-    type: string
-    format: date-time
-    description: Date and time that the listing is opened up for buy orders
-  end_date:
-    type: string
-    format: date-time
-    description: Date and time that the listing closes for buy orders
-  included_description:
+    description: True if the order will be extended by 30 minutes if a bid is placed in the last 30 minutes.
+    example: false
+  description_included:
     type: string
     description: Short blurb about what the winner of the listing will receive
     example: The winner of this listing will receive special behind the scenes footage. 
-  charity_description:
+  description_charity:
     type: string
     description: Short blurb about what the proceeds of the listing will go to (if applicable)
     example: 100% of the proceeds of this listing will go to X Foundation. 
   pricing:
     $ref: ./Pricing.yaml
-  tags:
-    type: array
-    items:
-    - enum: [sports, art, film, music]
+  maker:
+    $ref: ./UserPublic.yaml
+  taker:
+    $ref: ./UserPublic.yaml
+  is_primary:
+    type: boolean
+    description: Boolean indicating if the listing is a primary sale of now. Primary sales are listings posted directly by the creator.
+    example: True 
+  is_featured:
+    type: string
+    description: Boolean indicating if the product is featured or not. Featured products get better positioning on the marketplaces.
+    example: True
+  is_live:
+    type: string
+    description: Boolean indicating if the product is live or not. Live products have open sell orders.
+    example: True
+  date_open:
+    type: string
+    format: date-time
+    description: Datetime that the collection will be open to the public.
+  date_close:
+    type: string
+    format: date-time
+    description: Datetime that the collection will close.
+  date_created:
+    type: string
+    format: date-time
+  date_updated:
+    type: string
+    format: date-time
