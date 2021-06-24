@@ -1,0 +1,7 @@
+type: object
+properties:
+  user_id:
+    type: string
+    description: Unique user identifier
+    example: "google-oauth2|102413572753411581235"
+ 

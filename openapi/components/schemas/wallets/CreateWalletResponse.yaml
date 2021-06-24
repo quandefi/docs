@@ -1,0 +1,26 @@
+type: object
+properties:
+  is_active:
+    type: boolean
+    description: Flag to indicate whether the wallet is active
+    example: true
+  PK:
+    type: string
+    description: Unique Wallet Identifier ( WALLET#{wallet_id} )
+    example: "WALLET#1000130764"
+  SK:
+    type: string
+    description: Unique User Identifier for whom the Wallet was created ( USER#{user_id} )
+    example: "USER#google-oauth2|102413572753411581235"
+  idempotency_key:
+    type: string
+    description: Key used for Circle to ensure API calls will give repeatable responses
+    example: "9ff12d7f-7f0d-486b-acf9-2d5eb3e7f7b3"
+  create_date:
+    type: string
+    description: Datetime Wallet was created
+    example: "2021-06-24T18:24:22.136023"
+  update_date:
+    type: string
+    description: Datetime Wallet was updated
+    example: "2021-06-24T18:24:22.136144"

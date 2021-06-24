@@ -1,0 +1,14 @@
+type: object
+properties:
+  is_active:
+    type: boolean
+    description: Flag to indicate whether the wallet is active
+    example: true
+  PK:
+    type: string
+    description: Unique Wallet Identifier ( WALLET#{wallet_id} )
+    example: "WALLET#1000130764"
+  SK:
+    type: string
+    description: Unique User Identifier for whom the Wallet was created ( USER#{user_id} )
+    example: "USER#google-oauth2|102413572753411581235"

@@ -1,0 +1,10 @@
+type: object
+properties:
+  statusCode:
+    description: Status Code
+    type: integer
+    example: 300
+  message:
+    description: Error Message
+    type: string
+    example: Previously Created
