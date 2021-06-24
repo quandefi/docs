@@ -1,0 +1,10 @@
+type: object
+properties:
+  amount:
+    type: string
+    description: Amount of Currency
+    example: "3.14"
+  currency:
+    type: string
+    description: Currency Code
+    example: "USD"

@@ -47,8 +47,8 @@ paths:
 
   '/wallets':
     $ref: paths/wallets.yaml
-  # '/wallets/{wallet_id}':
-  #   $ref: 'paths/wallets@{wallet_id}.yaml'
+  '/wallets/{wallet_id}':
+    $ref: 'paths/wallets@{wallet_id}.yaml'
 
   # '/blockchain/assets{id}':
   #   $ref: 'paths/blockchain@assets{id}.yaml'

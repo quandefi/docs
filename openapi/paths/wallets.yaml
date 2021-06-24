@@ -14,21 +14,21 @@ post:
           $ref: ../components/schemas/wallets/CreateWalletRequest.yaml
   responses: 
     '201':
-      description: Success
+      description: Created
       content:
         application/json:
           schema:
             $ref: ../components/schemas/wallets/CreateWalletResponse.yaml
-    '300':
-      description: Previously Created
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/wallets/PreviouslyCreatedWalletResponse.yaml
     '403':
       description: Forbidden
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ErrorForbidden.yaml
+    '409':
+      description: Previously Created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/wallets/PreviouslyCreatedWalletResponse.yaml
 

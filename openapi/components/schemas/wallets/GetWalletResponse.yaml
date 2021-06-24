@@ -1,0 +1,23 @@
+type: object
+properties:
+  walletId:
+    type: string
+    description: Unique Wallet Identifier
+    example: "1000130764"
+  entityId:
+    type: string
+    description: Unique Entity Identifier in Circle
+    example: "693f5267-d072-4c95-8aba-42f103b85666"
+  type:
+    type: string
+    description: Type of Wallet in Circle
+    example: "end_user_wallet"
+  description:
+    type: string
+    description: Description of Wallet ( Wallet for":" {user_id} )
+    example: "Wallet for: google-oauth2|102413572753411581234"
+  balances:
+    type: array
+    description: Datetime Wallet was created
+    items:
+      $ref: ./Balances.yaml

@@ -1,0 +1,11 @@
+type: object
+properties:
+  wallet_id:
+    type: string
+    description: Unique wallet identifier
+    example: "1000130512"
+  is_active:
+    type: boolean
+    description: Flag to indicate whether the wallet is active
+    example: false
+ 

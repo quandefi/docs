@@ -1,0 +1,90 @@
+get:
+  tags:
+    - Wallets
+  summary: Get wallet by wallet id
+  description: Get wallet by wallet_id
+  operationId: getWallet
+  parameters:
+    - name: wallet_id
+      in: path
+      description: The id of the wallet that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:wallets'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/wallets/GetWalletResponse.yaml
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
+delete:
+  tags:
+    - Wallets
+  summary: Delete wallet by wallet id
+  description: Delete wallet by wallet_id (only from our DB and not Circle)
+  operationId: deleteWallet
+  parameters:
+    - name: wallet_id
+      in: path
+      description: The id of the wallet that needs to be deleted
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'delete:wallets'
+  responses:
+    '204':
+      description: No Content
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
+patch:
+  tags:
+    - Wallets
+  summary: Update wallet
+  description: Update the wallet of a user. This can only be used to (de)-activate a wallet
+  operationId: updateWallet
+  parameters:
+    - name: wallet_id
+      in: path
+      description: The id of the wallet that needs to be updated
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'write:wallets'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/wallets/UpdateWalletRequest.yaml
+    description: Updated wallet object
+    required: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/wallets/CreateWalletResponse.yaml
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
