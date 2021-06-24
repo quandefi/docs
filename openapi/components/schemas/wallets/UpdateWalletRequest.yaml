@@ -1,4 +1,7 @@
 type: object
+required:
+  - wallet_id
+  - is_active
 properties:
   wallet_id:
     type: string

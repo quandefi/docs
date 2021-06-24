@@ -53,6 +53,10 @@ paths:
     $ref: 'paths/wallets@{wallet_id}.yaml'
   '/wallets/{wallet_id}/payment_instrument':
     $ref: 'paths/wallets@{wallet_id}@payment_instrument.yaml'
+  '/wallets/{wallet_id}/payment_instrument/{payment_instrument_id}':
+    $ref: 'paths/wallets@{wallet_id}@payment_instrument@{payment_instrument_id}.yaml'
+  '/wallets/encryption':
+    $ref: 'paths/wallets@encryption.yaml'
 
   # '/blockchain/assets{id}':
   #   $ref: 'paths/blockchain@assets{id}.yaml'

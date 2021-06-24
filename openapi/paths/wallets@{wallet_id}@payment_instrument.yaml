@@ -38,3 +38,32 @@ post:
         application/json:
           schema:
             $ref: ../components/schemas/ErrorServer.yaml
+get:
+  tags:
+    - PaymentInstruments
+  summary: Get payment instruments by wallet id
+  description: Get payment instruments by wallet_id
+  operationId: listPaymentInstruments
+  parameters:
+    - name: wallet_id
+      in: path
+      description: The id of the wallet that needs pyament instruments to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:wallets'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_instruments/CreatePaymentInstrumentResponse.yaml
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found

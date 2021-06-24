@@ -1,0 +1,22 @@
+get:
+  tags:
+    - PaymentInstruments
+  summary: Get encryption key to create a card
+  description: Get encryption key to create a card
+  operationId: getPublicKey
+  security:
+    - main_auth:
+        - 'read:wallets'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_instruments/GetPublicKeyResponse.yaml
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found

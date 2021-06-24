@@ -1,0 +1,31 @@
+delete:
+  tags:
+    - PaymentInstruments
+  summary: Delete payment instrument by wallet id and payment instrument id
+  description: Delete payment instrument by wallet id and payment instrument id(only from our DB and not Circle)
+  operationId: deletePaymentInstrument
+  parameters:
+    - name: wallet_id
+      in: path
+      description: The id of the wallet that owns the payment instrument that needs to be deleted
+      required: true
+      schema:
+        type: string
+    - name: payment_instrument_id
+      in: path
+      description: The id of the payment instrument that needs to be deleted
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'delete:wallets'
+  responses:
+    '204':
+      description: No Content
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
