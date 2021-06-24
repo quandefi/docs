@@ -45,8 +45,8 @@ paths:
   '/markets/collections/{collection_id}':
     $ref: 'paths/markets@collections@{collection_id}.yaml'
 
-  # '/wallets':
-  #   $ref: paths/wallets.yaml
+  '/wallets':
+    $ref: paths/wallets.yaml
   # '/wallets/{wallet_id}':
   #   $ref: 'paths/wallets@{wallet_id}.yaml'
 
