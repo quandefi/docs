@@ -1,0 +1,36 @@
+type: object
+required:
+  - name
+  - city
+  - country
+  - line1
+  - postalCode
+properties:
+  name:
+    type: string
+    description: Full name of the card or bank account holder.
+    example: "Satoshi Nakamoto"
+  city:
+    type: string
+    description: City portion of the address.
+    example: "Boston"
+  country:
+    type: string
+    description: Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.
+    example: "US"
+  line1:
+    type: string
+    description: Line one of the street address.
+    example: "100 Money Street"
+  line2:
+    type: string
+    description: Line two of the street address.
+    example: "Suite 1"
+  district:
+    type: string
+    description: State / County / Province / Region portion of the address. If the country is US or Canada district is required and should use the two-letter code for the subdivision.
+    example: "MA"
+  postalCode:
+    type: string
+    description: Postal / ZIP code of the address.
+    example: "01234"

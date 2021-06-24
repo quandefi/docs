@@ -1,0 +1,11 @@
+type: object
+properties:
+  cvv:
+    type: string
+    description: Verification status of the CVV
+    example: "pending"
+  avs:
+    type: string
+    description: Verification status of the AVS
+    example: "complete"
+

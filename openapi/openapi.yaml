@@ -24,8 +24,10 @@ tags:
     description: Operations about products
   - name: Wallets
     description: Operations about wallets
+  - name: PaymentInstruments
+    description: Operations about payment instruments
 servers:
-  - url: 'https://quanwallet.io'
+  - url: 'https://api.quandefi.org'
 paths:
   '/users':
     $ref: 'paths/users.yaml'
@@ -49,6 +51,8 @@ paths:
     $ref: paths/wallets.yaml
   '/wallets/{wallet_id}':
     $ref: 'paths/wallets@{wallet_id}.yaml'
+  '/wallets/{wallet_id}/payment_instrument':
+    $ref: 'paths/wallets@{wallet_id}@payment_instrument.yaml'
 
   # '/blockchain/assets{id}':
   #   $ref: 'paths/blockchain@assets{id}.yaml'

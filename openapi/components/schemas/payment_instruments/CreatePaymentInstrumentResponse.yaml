@@ -1,0 +1,71 @@
+type: object
+properties:
+  is_active:
+    type: boolean
+    description: Flag to indicate whether the payment instrument is active
+    example: true
+  PK:
+    type: string
+    description: Unique Wallet Identifier ( WALLET#{wallet_id} )
+    example: "WALLET#1000130161"
+  SK:
+    type: string
+    description: Unique Payment Instrument Identifier ( PAYMENT_INSTRUMENT#{payment_instrument_id} )
+    example: "PAYMENT_INSTRUMENT#2ddb1faa-e3f3-4eba-aa9f-638f943bd998"
+  type:
+    type: string
+    description: Type of Payment Instrument Created
+    enum: ['BANK_WIRES', 'CARD']
+    example: "BANK_WIRES"
+  idempotency_key:
+    type: string
+    description: Key used for Circle to ensure API calls will give repeatable responses
+    example: "efb9a88b-84b8-4628-a4b3-d0509591db30"
+  create_date:
+    type: string
+    description: Datetime Wallet was created
+    example: "2021-06-24T18:24:22.136023"
+  update_date:
+    type: string
+    description: Datetime Wallet was updated
+    example: "2021-06-24T18:24:22.136144"
+  billingDetails:
+    $ref: ./BillingDetails.yaml
+    description: Billing Details of the Payment instrument
+  bankAddress:
+    $ref: ./BankAddress.yaml
+    description: Bank Address of the Payment Instrument (Required for all banks except US Bank)
+  accountName:
+    type: string
+    description: User Defined Name for the Account
+    example: "My Capital One Debit Card"
+  description:
+    type: string
+    description: Description of the Payment Instrument
+    example: "WELLS FARGO BANK, NA ****0010"
+  status:
+    type: string
+    description: Approval Status of the Payment Instrument
+    example: "pending"
+  last_four:
+    type: string
+    description: Last Four Digits of the Account (Account Number, IBAN, Card Number)
+    example: "0010"
+  metadata:
+    $ref: ./Metadata.yaml
+    description: Metadata from the user for the card. (required for card)
+  expMonth:
+    type: number
+    description: One or Two digit number representing the card's expiration month. (required for card)
+    example: 1
+  expYear:
+    type: number
+    description: Four digit number representing the card's expiration year. (required for card)
+    example: 2021
+  network:
+    type: string
+    description: Network of the Card Provider. (required for card)
+    example: "MASTERCARD"
+  verification:
+    $ref: ./Verification.yaml
+    description: Verification status of the card. (required for card)

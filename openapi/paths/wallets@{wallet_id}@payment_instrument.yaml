@@ -1,0 +1,40 @@
+post:
+  tags:
+  - PaymentInstruments
+  summary: Create a payment instrument (bank wires *3 types*, card, ACH)
+  description: Create a payment instrument (bank wires *3 types*, card, ACH)
+  operationId: createPaymentInstrument
+  parameters:
+    - name: wallet_id
+      in: path
+      description: The id of the wallet to create the payment instrument
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'write:wallets'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: ../components/schemas/payment_instruments/CreatePaymentInstrumentRequest.yaml
+  responses: 
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_instruments/CreatePaymentInstrumentResponse.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorForbidden.yaml
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorServer.yaml

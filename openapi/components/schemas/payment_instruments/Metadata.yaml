@@ -1,0 +1,22 @@
+type: object
+required:
+  - email
+  - sessionId
+  - ipAddress
+properties:
+  email:
+    type: string
+    description: Email of the user
+    example: "satoshi@circle.com"
+  phoneNumber:
+    type: string
+    description: Phone number of the user in E.164 format. We recommend using a library such as libphonenumber to parse and validate phone numbers.
+    example: "+12025550180"
+  sessionId:
+    type: string
+    description: Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT":" Please hash the session identifier to prevent sending us actual session identifiers.
+    example: "DE6FA86F60BB47B379307F851E238617"
+  ipAddress:
+    type: string
+    description: Single IPv4 or IPv6 address of user
+    example: "244.28.239.130"

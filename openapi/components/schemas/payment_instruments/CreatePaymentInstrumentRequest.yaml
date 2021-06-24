@@ -1,0 +1,58 @@
+type: object
+required:
+  - type
+  - billingDetails
+  - accountName
+  - isPrimary
+properties:
+  type:
+    type: string
+    description: Type of Payment Instrument to be created
+    enum: [Bank, Card]
+    example: "Bank"
+  billingDetails:
+    $ref: ./BillingDetails.yaml
+    description: Billing Details of the Payment instrument
+  bankAddress:
+    $ref: ./BankAddress.yaml
+    description: Bank Address of the Payment Instrument (Required for all banks except US Bank)
+  accountName:
+    type: string
+    description: User Defined Name for the Account
+    example: "My Capital One Debit Card"
+  accountNumber:
+    type: string
+    description: Account Number (Required for non-IBAN bank accounts)
+    example: "12340010"
+  routingNumber:
+    type: string
+    description: Routing Number (Required for non-IBAN bank accounts)
+    example: "121000248"
+  iban:
+    type: string
+    description: IBAN (required for IBAN bank accounts)
+    example: "DE31100400480532013000"  
+  isPrimary:
+    type: boolean
+    description: Flag to indicate if this is the primary payment instrument
+  keyId:
+    type: string
+    description: Unique identifier of the public key used in encryption. (Retrieved from PGP encryption endpoint) (required for card)
+    example: "key1"
+  encryptedData:
+    type: string
+    description: PGP encrypted json string. The object format given here needs to be stringified and PGP encrypted before it is sent to the server, so encryptedData will end up as a string, rather than an object (fields are number and cvv). (required for card)
+    example: "LS0tLS1CRUdJTiBQR1AgTUVTU0FHRS0tLS0tDQpWZXJzaW9uOiBPcGVuUEdQLmpzIHY0LjEwLjQNCkNvbW1lbnQ6IGh0dHBzOi8vb3BlbnBncGpzLm9yZw0KDQp3Y0JNQTBYV1NGbEZScFZoQVFmL2F2bnNxZnAwYUhFRFdqNUV0YS9mekZrazFkUDcrMXdOUzR5QndGTzUNCjllRFQ2OVZzVThmNWN3aUZCVW9yOUF0WDZQZWZ1VUhzMURJZmZ5bkZkNUU3OURyREJIejZBTHpMRmorUw0Ka21ZYU5pM0QybkNSRXhxQW1HV1kyYmNsZlZoUXVUa0RrUlBlWHRzUWpDYzdDemRkYmpZTEJia05WRGQxDQpTNUpTWVNDRjVYNWV3a0NIQVdqNjdtcjlreitPUFdzS0JnNTFoRldRR2h2bkpNcGpZZm9BdlE2bGtoTFANCkcwYmdwZktrNFBhTUpFblVxNGhPVi8rbDhLQkhHVjBBa2YvbGJtbXBRR255RHRQNDMySGhvMVBvOGs0Tw0KeCs4K2plSlVEVG1kckZjR0lPQUpkdE9RNTZBM25YakFOTWFpQVZORjRnallwcUJQTHBLUzgyRnVMN3NlDQpyZEpoQVNKbTNCSFRONlZPS0pDTm5JWm02UEpIY1VzeDA4ajViKzN4Y1RvT3p1NG9VdWhCT1JucGhmVzgNCnREWkVvQmlpQVcyaUZrVm5kTzFzeWpWZ2JvVWpTaG5QbjB1Kzg3MzVpMVVvbUJTWUhKWVZZQnYrRU9BeQ0KVWJxbmNIbHlvekx1N2c9PQ0KPUlsVTUNCi0tLS0tRU5EIFBHUCBNRVNTQUdFLS0tLS0NCg=="
+  expMonth:
+    type: number
+    description: One or Two digit number representing the card's expiration month. (required for card)
+    example: 1
+  expYear:
+    type: number
+    description: Four digit number representing the card's expiration year. (required for card)
+    example: 2021
+  metadata:
+    $ref: ./Metadata.yaml
+    description: Metadata from the user for the card. (required for card)
+
+    
