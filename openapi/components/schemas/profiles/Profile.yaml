@@ -8,6 +8,10 @@ properties:
     type: string
     description: Public username
     example: "lewishamilton"
+  description:
+    type: string
+    description: Public description
+    example: "lewishamilton"
   image_url:
     type: string
     description: Url of the users profile picture
@@ -52,10 +56,6 @@ properties:
     type: string
     description: Boolean indicating if the user is live or not. Live users have open sell orders.
     example: True
-  date_open:
-    type: string
-    format: date-time
-    description: Datetime that the user will be publicly released.
   date_created:
     type: string
     format: date-time

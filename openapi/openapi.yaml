@@ -2,10 +2,10 @@ openapi: 3.0.2
 info:
   version: 1.0.0
   title: Quandefi
-  termsOfService: 'https://quanwallet.io/terms/'
+  termsOfService: 'https://quandefi.io/terms/'
   contact:
-    email: contact@quanwallet.io
-    url: 'http://quanwallet.io/contact'
+    email: contact@quandefi.io
+    url: 'http://quandefi.io/contact'
   x-logo:
     url: 'https://quandefi.github.io/docs/logo.png'
   description: >
@@ -79,14 +79,22 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
+          authorizationUrl: 'http://quandefi.org/api/oauth/dialog'
           scopes:
             'read:users': read users info
             'write:users': modify or remove users
+            'read:profiless': read profiless info
+            'write:profiless': modify or remove profiless
             'read:products': read products info
             'write:products': modify or remove products
-            # 'read:collections': read collections info
-            # 'write:collections': modify or remove collections
+            'read:collections': read collections info
+            'write:collections': modify or remove collections
+            'read:orders': read orders info
+            'write:orders': modify or remove orders
+            'read:wallets': read wallets info
+            'write:wallets': modify or remove wallets
+            'read:payment_instruments': read payment_instruments info
+            'write:payment_instruments': modify or remove payment_instruments
     basic_auth:
       type: http
       scheme: basic
