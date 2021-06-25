@@ -31,13 +31,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorForbidden.yaml
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml
     '500':
       description: Internal Server Error
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorServer.yaml
+            $ref: ../components/schemas/errors/ErrorServer.yaml
 get:
   tags:
     - PaymentInstruments

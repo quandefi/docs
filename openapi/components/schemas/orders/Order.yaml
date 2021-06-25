@@ -37,11 +37,11 @@ properties:
     description: Short blurb about what the proceeds of the listing will go to (if applicable)
     example: 100% of the proceeds of this listing will go to X Foundation. 
   pricing:
-    $ref: ./Pricing.yaml
+    $ref: ../orders/Pricing.yaml
   maker:
-    $ref: ./Profile.yaml
+    $ref: ../profiles/Profile.yaml
   taker:
-    $ref: ./Profile.yaml
+    $ref: ../profiles/Profile.yaml
   is_primary:
     type: boolean
     description: Boolean indicating if the listing is a primary sale of now. Primary sales are listings posted directly by the creator.

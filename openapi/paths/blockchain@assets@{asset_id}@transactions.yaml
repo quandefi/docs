@@ -16,7 +16,7 @@ post:
     content:
       'application/json':
         schema:
-          $ref: ../components/schemas/AssetTransaction.yaml
+          $ref: ../components/schemas/assets/AssetTransaction.yaml
           required:
             - name
             - assets
@@ -26,10 +26,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/AssetTransaction.yaml
+            $ref: ../components/schemas/assets/AssetTransaction.yaml
     '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorForbidden.yaml
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml

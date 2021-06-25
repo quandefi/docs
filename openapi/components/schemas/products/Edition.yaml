@@ -15,13 +15,13 @@ properties:
     type: integer
     example: 6780
   creator:
-    $ref: ./Profile.yaml
+    $ref: ../profiles/Profile.yaml
   owner:
-    $ref: ./Profile.yaml
+    $ref: ../profiles/Profile.yaml
   orders:
     type: array
     items:
-    - $ref: ./Order.yaml
+    - $ref: ../orders/Order.yaml
   is_featured:
     type: string
     description: Boolean indicating if the edition is featured or not. Featured editions get better positioning on the marketplaces.

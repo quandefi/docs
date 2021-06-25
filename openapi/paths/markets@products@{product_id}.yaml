@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Product.yaml
+            $ref: ../components/schemas/products/Product.yaml
     '400':
       description: Bad request
     '403':
@@ -47,7 +47,7 @@ get:
 #     content:
 #       application/json:
 #         schema:
-#           $ref: ../components/schemas/Product.yaml
+#           $ref: ../components/schemas/products/Product.yaml
 #     description: Updated product object
 #     required: true
 #   responses:

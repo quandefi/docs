@@ -27,19 +27,19 @@ properties:
   products_created:
     type: array
     items:
-    - $ref: ./Product.yaml
+    - $ref: ../products/Product.yaml
   products_owned:
     type: array
     items:
-    - $ref: ./Edition.yaml
+    - $ref: ../products/Edition.yaml
   collections_created:
     type: array
     items:
-    - $ref: ./Collection.yaml
+    - $ref: ../collections/Collection.yaml
   orders:
     type: array
     items:
-    - $ref: ./Order.yaml
+    - $ref: ../orders/Order.yaml
   is_featured:
     type: string
     description: Boolean indicating if the user is featured or not. Featured users get better positioning on the marketplaces.

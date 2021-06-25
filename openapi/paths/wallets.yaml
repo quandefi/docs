@@ -24,7 +24,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorForbidden.yaml
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml
     '409':
       description: Previously Created
       content:

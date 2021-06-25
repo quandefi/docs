@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/User.yaml
+            $ref: ../components/schemas/users/User.yaml
     '400':
       description: Bad request
     '403':
@@ -47,7 +47,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/User.yaml
+          $ref: ../components/schemas/users/User.yaml
     description: Updated user object
     required: true
   responses:

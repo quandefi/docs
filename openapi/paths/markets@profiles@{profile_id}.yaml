@@ -20,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Profile.yaml
+            $ref: ../components/schemas/profiles/Profile.yaml
     '400':
       description: Bad request
     '403':
@@ -47,7 +47,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/Profile.yaml
+          $ref: ../components/schemas/profiles/Profile.yaml
     description: Updated profile object
     required: true
   responses:

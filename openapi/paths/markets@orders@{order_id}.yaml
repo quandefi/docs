@@ -21,16 +21,16 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Order.yaml
+            $ref: ../components/schemas/orders/Order.yaml
     '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorForbidden.yaml
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml
     '404':
       description: Not found
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorNotFound.yaml
+            $ref: ../components/schemas/errors/ErrorNotFound.yaml

@@ -11,7 +11,7 @@ post:
     content:
       'application/json':
         schema:
-          $ref: ../components/schemas/Collection.yaml
+          $ref: ../components/schemas/collections/Collection.yaml
           required:
             - title
             - description
@@ -25,13 +25,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Collection.yaml
+            $ref: ../components/schemas/collections/Collection.yaml
     '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorForbidden.yaml
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml
 
 get:
   tags:
@@ -68,16 +68,16 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Collection.yaml
+            $ref: ../components/schemas/collections/Collection.yaml
     '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorForbidden.yaml
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml
     '404':
       description: Not found
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ErrorNotFound.yaml
+            $ref: ../components/schemas/errors/ErrorNotFound.yaml

@@ -4,11 +4,11 @@ properties:
     type: integer
     description: Unique identifier for the collection
   creator:
-    $ref: ./Profile.yaml
+    $ref: ../profiles/Profile.yaml
   products:
     type: array
     items:
-    - $ref: ./Product.yaml
+    - $ref: ../products/Product.yaml
   title:
     type: string
     example: British Grand Prix 2021

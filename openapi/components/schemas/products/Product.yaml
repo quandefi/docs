@@ -5,7 +5,7 @@ properties:
     description: Unique identifier for the product
     example: '232d323f3r23r23r232434'
   creator:
-    $ref: ./Profile.yaml
+    $ref: ../profiles/Profile.yaml
   title:
     type: string
     description: Title of the product
