@@ -15,9 +15,9 @@ properties:
     type: integer
     example: 6780
   creator:
-    $ref: ./UserPublic.yaml
+    $ref: ./Profile.yaml
   owner:
-    $ref: ./UserPublic.yaml
+    $ref: ./Profile.yaml
   orders:
     type: array
     items:

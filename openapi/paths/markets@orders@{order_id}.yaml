@@ -1,6 +1,6 @@
 get:
   tags:
-    - Markets
+    - Orders
   summary: Get order by id
   description: Retrieves the details of an existing order using its id. You need only supply the unique order identifier that was returned upon order creation.
   operationId: getOrder

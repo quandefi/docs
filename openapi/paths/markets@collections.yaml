@@ -1,6 +1,6 @@
 post:
   tags:
-  - Markets
+  - Collections
   summary: Create an colection
   description: Create a new colection with a list of assets. Requester must own all assets.
   operationId: createCollection
@@ -35,7 +35,7 @@ post:
 
 get:
   tags:
-    - Markets
+    - Collections
   summary: Get a list of colections
   description: Get a list of colections based on the query parameters.
   operationId: listCollections

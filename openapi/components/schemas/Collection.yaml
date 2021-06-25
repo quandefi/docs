@@ -4,7 +4,7 @@ properties:
     type: integer
     description: Unique identifier for the collection
   creator:
-    $ref: ./UserPublic.yaml
+    $ref: ./Profile.yaml
   products:
     type: array
     items:

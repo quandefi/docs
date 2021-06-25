@@ -20,8 +20,14 @@ externalDocs:
 tags:
   - name: Users
     description: Operations about users
-  - name: Markets
+  - name: Profiles
+    description: Operations about profiles
+  - name: Products
     description: Operations about products
+  - name: Orders
+    description: Operations about orders
+  - name: Collections
+    description: Operations about collections
   - name: Wallets
     description: Operations about wallets
   - name: PaymentInstruments
@@ -34,6 +40,10 @@ paths:
   '/users/{user_id}':
     $ref: 'paths/users@{user_id}.yaml'
 
+  '/markets/profiles':
+    $ref: 'paths/markets@profiles.yaml'
+  '/markets/profiles/{profile_id}':
+    $ref: 'paths/markets@profiles@{profile_id}.yaml'
   '/markets/products':
     $ref: 'paths/markets@products.yaml'
   '/markets/products/{product_id}':

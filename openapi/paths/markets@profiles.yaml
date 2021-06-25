@@ -1,12 +1,12 @@
 post:
   tags:
-  - Users
-  summary: Create a user
-  description: Create a new user with a list of assets. Requester must own all assets.
-  operationId: createUser
+  - Profiles
+  summary: Create a profile
+  description: Create a new profile with a list of assets. Requester must own all assets.
+  operationId: createProfile
   security:
     - main_auth:
-        - 'write:users'
+        - 'write:profiles'
   requestBody:
     content:
       'application/json':
@@ -28,16 +28,16 @@ post:
 
 get:
   tags:
-    - Users
-  summary: Get a list of users
-  description: Get a list of users based on the query parameters.
-  operationId: listUsers
+    - Profiles
+  summary: Get a list of profiles
+  description: Get a list of profiles based on the query parameters.
+  operationId: listProfiles
   parameters:
     - in: query
       name: is_featured
       schema:
         type: string
-        description: Show featured users
+        description: Show featured profiles
         enum: ['true', 'false']
     - in: query
       name: is_creator

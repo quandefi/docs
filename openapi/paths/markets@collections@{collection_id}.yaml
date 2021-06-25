@@ -1,6 +1,6 @@
 get:
   tags:
-    - Markets
+    - Collections
   summary: Get collection by id
   description: Retrieves the details of an existing collection using its id. You need only supply the unique collection identifier that was returned upon collection creation.
   operationId: getCollection

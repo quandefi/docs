@@ -2,7 +2,7 @@ type: object
 properties:
   user_id:
     type: string
-    description: Unique user identifier
+    description: Unique user identifier for the user of the profile
     example: "auth0|21re2e7123j21id1jr3urjd3r"
   username:
     type: string
@@ -28,10 +28,14 @@ properties:
     type: array
     items:
     - $ref: ./Product.yaml
-  product_editions_owned:
+  products_owned:
     type: array
     items:
     - $ref: ./Edition.yaml
+  collections_created:
+    type: array
+    items:
+    - $ref: ./Collection.yaml
   orders:
     type: array
     items:

@@ -1,6 +1,6 @@
 post:
   tags:
-  - Markets
+  - Orders
   summary: Create an order
   description: Create a new order with a list of assets. Requester must own all assets.
   operationId: createOrder
@@ -35,7 +35,7 @@ post:
 
 get:
   tags:
-    - Markets
+    - Orders
   summary: Get a list of orders
   description: Get a list of orders based on the query parameters.
   operationId: listOrders

@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Profiles
+  summary: Get profile by profile id
+  description: Get profile by profile_id provided from the authentication method. This can only be done by the logged in profile.
+  operationId: getProfile
+  parameters:
+    - name: profile_id
+      in: path
+      description: The id of the profile that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:profiles'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found
+patch:
+  tags:
+    - Profiles
+  summary: Update profile
+  description: Update the profile profile. This can only be done by the logged in profile.
+  operationId: updateProfile
+  parameters:
+    - name: profile_id
+      in: path
+      description: The id of the profile that needs to be updated
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'write:profiles'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Profile.yaml
+    description: Updated profile object
+    required: true
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: Bad request
+    '403':
+      description: Forbidden
+    '404':
+      description: Not found

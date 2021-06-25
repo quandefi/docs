@@ -4,34 +4,26 @@ properties:
     type: string
     description: Unique user identifier
     example: "auth0|21re2e7123j21id1jr3urjd3r"
-  email:
+  username:
     type: string
-    description: Users email address
-    example: "johndoe@gmail.com"
-  email_verified:
-    type: boolean
-    description: Flag to determine if the user has verified their email
-    example: true
+    description: Username
+    example: "johndoe123"
+  bio:
+    type: string
+    description: Public description about the user
+    example: "public description about the user"
   name:
     type: string
     description: User first and last name
     example: "John Doe"
-  nickname:
+  email:
     type: string
-    description: Username
-    example: "johndoe123"
-  picture:
+    description: Users email address
+    example: "johndoe@gmail.com"
+  phone:
     type: string
-    description: User Avatar
-    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
-  created_at:
-    type: string
-    description: Datetime user profile was created
-    example: "2021-06-10T19:28:00.509Z"
-  updated_at:
-    type: string
-    description: Datetime user profile was updated last
-    example: "2021-06-16T00:24:54.461Z"
+    description: Users phone number as a string
+    example: "1111111111"
   picture_profile:
     type: string
     description: Public user profile picture
@@ -40,17 +32,17 @@ properties:
     type: string
     description: Public user cover picture
     example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
-  bio:
-    type: string
-    description: Public description about the user
-    example: "public description about the user"
-  twitter:
+  social_twitter:
     type: string
     description: Twitter handle
     example: johndoetweets
-  instagram:
+  social_instagram:
     type: string
     description: Instagram handle
+    example: johndoegram
+  social_facebook:
+    type: string
+    description: Facebook handle
     example: johndoegram
   wallet_id:
     type: string
@@ -59,3 +51,31 @@ properties:
   blockchain_addresses:
     type: array
     description: Public blockchain addressses linked to user. Can be Flow or Ethereum addresses.
+  is_email_verified:
+    type: boolean
+    description: Flag to determine if the user has verified their email
+    example: true
+  is_phone_verified:
+    type: boolean
+    description: Flag to determine if the user has verified their phone
+    example: true
+  is_identity_verified:
+    type: boolean
+    description: Flag to determine if the user has verified their identity
+    example: true
+  is_creator:
+    type: boolean
+    description: Flag to determine if the user has creator permissions
+    example: true
+  is_live:
+    type: boolean
+    description: Flag to determine if the user is active
+    example: true
+  date_created:
+    type: string
+    description: Datetime user profile was created
+    example: "2021-06-10T19:28:00.509Z"
+  date_updated:
+    type: string
+    description: Datetime user profile was updated last
+    example: "2021-06-16T00:24:54.461Z"

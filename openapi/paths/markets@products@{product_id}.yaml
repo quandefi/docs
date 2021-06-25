@@ -1,6 +1,6 @@
 get:
   tags:
-    - Markets
+    - Products
   summary: Get product by product id
   description: Get product details by id.
   operationId: getProduct
@@ -29,7 +29,7 @@ get:
       description: Not found
 # patch:
 #   tags:
-#     - Markets
+#     - Products
 #   summary: Update product
 #   description: Update the product profile. This can only be done by the logged in product.
 #   operationId: updateProduct

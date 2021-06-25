@@ -1,7 +1,5 @@
 type: object
 properties:
-
-
   product_id:
     type: string
     description: Unique identifier for the product
@@ -41,9 +39,9 @@ properties:
   pricing:
     $ref: ./Pricing.yaml
   maker:
-    $ref: ./UserPublic.yaml
+    $ref: ./Profile.yaml
   taker:
-    $ref: ./UserPublic.yaml
+    $ref: ./Profile.yaml
   is_primary:
     type: boolean
     description: Boolean indicating if the listing is a primary sale of now. Primary sales are listings posted directly by the creator.

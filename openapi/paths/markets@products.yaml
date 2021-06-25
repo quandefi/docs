@@ -1,6 +1,6 @@
 post:
   tags:
-  - Markets
+  - Products
   summary: Create a product
   description: Create a new product.
   operationId: createProduct
@@ -25,7 +25,7 @@ post:
       description: Forbidden
 get:
   tags:
-    - Markets
+    - Products
   summary: Get a list of products
   description: Get a list of products based on the query parameters.
   operationId: listProducts
