@@ -2,10 +2,10 @@ openapi: 3.0.2
 info:
   version: 1.0.0
   title: Quandefi
-  termsOfService: 'https://quandefi.io/terms/'
+  termsOfService: 'https://quandefi.org/terms/'
   contact:
-    email: contact@quandefi.io
-    url: 'http://quandefi.io/contact'
+    email: contact@quandefi.org
+    url: 'http://quandefi.org/contact'
   x-logo:
     url: 'https://quandefi.github.io/docs/logo.png'
   description: >
@@ -32,6 +32,8 @@ tags:
     description: Operations about wallets
   - name: PaymentInstruments
     description: Operations about payment instruments
+  - name: MarketingSubscriptions
+    description: Operations about marketing subscriptions
 servers:
   - url: 'https://api.quandefi.org'
 paths:
@@ -68,6 +70,9 @@ paths:
   '/wallets/encryption':
     $ref: 'paths/wallets@encryption.yaml'
 
+  '/marketing/subscriptions':
+    $ref: 'paths/marketing@subscriptions.yaml'
+  
   # '/blockchain/assets{id}':
   #   $ref: 'paths/blockchain@assets{id}.yaml'
   # '/blockchain/assets{id}/transactions':

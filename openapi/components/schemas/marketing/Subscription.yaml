@@ -1,0 +1,10 @@
+type: object
+properties:
+  email:
+    type: string
+    description: Email address subscribed to the list
+    example: "john@doe.com"
+  list_id:
+    type: string
+    description: ID of the MailChimp list that the email is subscribe to
+    example: "1212ed12e2"

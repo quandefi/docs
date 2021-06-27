@@ -48,9 +48,9 @@ properties:
     type: string
     description: Id of the wallet linked to the user
     example: '519889162'
-  blockchain_addresses:
+  blockchain_wallets:
     type: array
-    description: Public blockchain addressses linked to user. Can be Flow or Ethereum addresses.
+    description: Public blockchain wallets linked to user. Can be Flow or Ethereum addresses.
   is_email_verified:
     type: boolean
     description: Flag to determine if the user has verified their email

@@ -1,0 +1,21 @@
+post:
+  tags:
+  - MarketingSubscriptions
+  summary: Subscribe to the marketing email list 
+  description: Create a new subscription for an email.
+  operationId: createSubscription
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: ../components/schemas/marketing/Subscription.yaml
+          required:
+            - email
+            - list_id
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/marketing/Subscription.yaml
