@@ -10,24 +10,8 @@ properties:
     example: "lewishamilton"
   description:
     type: string
-    description: Public description
+    description: Public description. Bio from user object.
     example: "lewishamilton"
-  image_url:
-    type: string
-    description: Url of the users profile picture
-    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
-  image_preview_url:
-    type: string
-    description: Url of the users profile picture
-    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
-  image_thumbnail_url:
-    type: string
-    description: Url of the users profile picture
-    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
-  image_background_color:
-    type: string
-    description: Url of the users profile picture
-    example: "https://s.gravatar.com/avatar/25e690b471030229d35e8aecd0eb7b53?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fsi.png"
   picture_profile:
     type: string
     description: Public user profile picture
@@ -64,6 +48,10 @@ properties:
     type: array
     items:
     - $ref: ../orders/Order.yaml
+  is_creator:
+    type: string
+    description: Boolean indicating if the user is a creator or not.
+    example: True
   is_featured:
     type: string
     description: Boolean indicating if the user is featured or not. Featured users get better positioning on the marketplaces.
