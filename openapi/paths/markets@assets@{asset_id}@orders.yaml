@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Assets
+  summary: Get a list of orders for an asset
+  description: Get a list of orders based on the asset id in the path parameters
+  operationId: listAssetOrders
+  parameters:
+    - in: path
+      name: asset_id
+      schema:
+        type: string
+        description: Show custom orders that include a given product.
+  responses: 
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/orders/Order.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/errors/ErrorForbidden.yaml
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/errors/ErrorNotFound.yaml

@@ -2,10 +2,10 @@ openapi: 3.0.2
 info:
   version: 1.0.0
   title: Quandefi
-  termsOfService: 'https://quandefi.org/terms/'
+  termsOfService: 'https://quandefi.io/terms/'
   contact:
-    email: contact@quandefi.org
-    url: 'http://quandefi.org/contact'
+    email: contact@quandefi.io
+    url: 'http://quandefi.io/contact'
   x-logo:
     url: 'https://quandefi.github.io/docs/logo.png'
   description: >
@@ -22,6 +22,8 @@ tags:
     description: Operations about users
   - name: Profiles
     description: Operations about profiles
+  - name: Assets
+    description: Operations about assets
   - name: Products
     description: Operations about products
   - name: Orders
@@ -35,17 +37,25 @@ tags:
   - name: MarketingSubscriptions
     description: Operations about marketing subscriptions
 servers:
-  - url: 'https://api.quandefi.org'
+  - url: https://api.quandefi.io
+    description: Production 
+  - url: https://api-uat.quandefi.io
+    description: Testing 
+  - url: https://api-dev.quandefi.io
+    description: Development 
 paths:
   '/users':
     $ref: 'paths/users.yaml'
   '/users/{user_id}':
     $ref: 'paths/users@{user_id}.yaml'
-
   '/markets/profiles':
     $ref: 'paths/markets@profiles.yaml'
   '/markets/profiles/{profile_id}':
     $ref: 'paths/markets@profiles@{profile_id}.yaml'
+  '/markets/assets':
+    $ref: 'paths/markets@assets.yaml'
+  '/markets/assets/{asset_id}':
+    $ref: 'paths/markets@assets@{asset_id}.yaml'
   '/markets/products':
     $ref: 'paths/markets@products.yaml'
   '/markets/products/{product_id}':
@@ -58,7 +68,6 @@ paths:
     $ref: 'paths/markets@collections.yaml'
   '/markets/collections/{collection_id}':
     $ref: 'paths/markets@collections@{collection_id}.yaml'
-
   '/wallets':
     $ref: paths/wallets.yaml
   '/wallets/{wallet_id}':
@@ -69,14 +78,8 @@ paths:
     $ref: 'paths/wallets@{wallet_id}@payment_instrument@{payment_instrument_id}.yaml'
   '/wallets/encryption':
     $ref: 'paths/wallets@encryption.yaml'
-
   '/marketing/subscriptions':
     $ref: 'paths/marketing@subscriptions.yaml'
-  
-  # '/blockchain/assets{id}':
-  #   $ref: 'paths/blockchain@assets{id}.yaml'
-  # '/blockchain/assets{id}/transactions':
-  #   $ref: 'paths/blockchain@assets{id}@transactions.yaml'
 
 components:
   securitySchemes:
@@ -84,12 +87,14 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: 'http://quandefi.org/api/oauth/dialog'
+          authorizationUrl: 'http://api.quandefi.io/api/oauth/dialog'
           scopes:
             'read:users': read users info
             'write:users': modify or remove users
-            'read:profiless': read profiless info
-            'write:profiless': modify or remove profiless
+            'read:profiles': read profiles info
+            'write:profiles': modify or remove profiles
+            'read:assets': read assets info
+            'write:assets': modify or remove assets
             'read:products': read products info
             'write:products': modify or remove products
             'read:collections': read collections info

@@ -1,50 +1,31 @@
 type: object
 properties:
-  id:
+  asset_id:
     description: Unique identifier for the asset
     type: string
     minLength: 36
-    example: cd3c2652-4cab-45ef-a805-330aebd36815
-  type:
-    description: Asset type
+    example: ethereum:rinkeby:0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656:6780722081544688904946080826264175863994209249617163133329578031500434079745
+  blockchain:
     type: string
-    enum: [pro, standard]
-    example: pro
-  name:
+    example: ethereum
+  network:
     type: string
-    example: Kill Bill Unseen Footage
-  description:
+    example: rinkeby
+  contract_address:
     type: string
-    example: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  image_uri:
-    type: string
-    example: https://lh3.googleusercontent.com/suOFW7rHThDV0DG2C6pTbsnRdHkMHXm0Kn2s97MH-AzR6k4ZFVslkUAXTE5HbO_NdW4UGmhVzPJopjYIanbmqyU5ozNTBmfv28JR
+    example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
+  token_id:
+    type: integer
+    example: 6780
   marketplace:
     type: string
     example: notables
+  tags:
+    type: array
+  creator:
+    $ref: ../profiles/Profile.yaml
   owner:
-    $ref: ./User.yaml
+    $ref: ../profiles/Profile.yaml
   is_featured:
     type: boolean
     example: True
-  token_edition:
-    type: integer
-    example: 1
-  tokens_minted:
-    type: integer
-    example: 100
-  metadata_uri:
-    type: string
-    example: https://my_token_data.com
-  blockchain_details:
-    type: object
-    properties:
-      blockchain:
-        type: string
-        example: rinkeby
-      contract_address:
-        type: string
-        example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
-      token_id:
-        type: integer
-        example: 6780
