@@ -35,13 +35,13 @@ properties:
     properties:
       address:
         type: string
-        example: 0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656
+        example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
       asset_contract_type:
         type: string
         example: semi-fungible
       created_date:
         type: string
-        example: 2021-05-17T18:22:26.262750
+        example: '2021-05-17T18:22:26.262750'
       name:
         type: string
         example: OpenSea Collections
@@ -67,25 +67,25 @@ properties:
         type: string
         example: false
       dev_buyer_fee_basis_points:
-        type: string
+        type: integer
         example: 0
       dev_seller_fee_basis_points:
-        type: string
+        type: integer
         example: 0
       only_proxied_transfers:
         type: string
         example: false
       opensea_buyer_fee_basis_points:
-        type: string
+        type: integer
         example: 0
       opensea_seller_fee_basis_points:
-        type: string
+        type: integer
         example: 250
       buyer_fee_basis_points:
-        type: string
+        type: integer
         example: 0
       seller_fee_basis_points:
-        type: string
+        type: integer
         example: 250
       payout_address:
         type: string
@@ -104,22 +104,22 @@ properties:
     example:
       created_date:
         type: string
-        example: 2021-06-27T15:41:49.483248
+        example: '2021-06-27T15:41:49.483248'
       closing_date:
         type: string
-        example: 2021-07-04T15:41:34
+        example: '2021-07-04T15:41:34'
       closing_extendable:
         type: string
         example: true
       expiration_time:
-        type: string
+        type: integer
         example: 1626018094
       listing_time:
-        type: string
+        type: integer
         example: 1625413294
       order_hash:
         type: string
-        example: 0x95df48b4d0d0a8cd2081f54e62e67f34b0ec6dd74e4d4e88f47340b918b0453d
+        example: '0x95df48b4d0d0a8cd2081f54e62e67f34b0ec6dd74e4d4e88f47340b918b0453d'
       metadata:
         type: string
         example:
@@ -128,10 +128,10 @@ properties:
           example:
           id:
             type: string
-            example: 6780722081544688904946080826264175863994209249617163133329578031500434079745
+            example: '6780722081544688904946080826264175863994209249617163133329578031500434079745'
           address:
             type: string
-            example: 0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656
+            example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
           quantity:
             type: string
             example: 1
@@ -140,19 +140,19 @@ properties:
           example: ERC1155
       exchange:
         type: string
-        example: 0x5206e78b21ce315ce284fb24cf05e0585a93b1d9
+        example: '0x5206e78b21ce315ce284fb24cf05e0585a93b1d9'
       maker:
         type: string
         example:
         user:
-          type: string
+          type: integer
           example: 11966
         profile_img_url:
           type: string
           example: https://storage.googleapis.com/opensea-static/opensea-profile/28.png
         address:
           type: string
-          example: 0x0efdc0b0827a1c23e87d8548647e2e7208a5b615
+          example: '0x0efdc0b0827a1c23e87d8548647e2e7208a5b615'
         config:
           type: string
           example: 
@@ -163,14 +163,14 @@ properties:
         type: string
         example:
         user:
-          type: string
+          type: integer
           example: 803
         profile_img_url:
           type: string
           example: https://storage.googleapis.com/opensea-static/opensea-profile/1.png
         address:
           type: string
-          example: 0x0000000000000000000000000000000000000000
+          example: '0x0000000000000000000000000000000000000000'
         config:
           type: string
           example: 
@@ -179,40 +179,40 @@ properties:
           example: 
       current_price:
         type: string
-        example: 100000000000000000.0000000000
+        example: '100000000000000000.0000000000'
       current_bounty:
         type: string
-        example: 1000000000000000
+        example: '1000000000000000'
       bounty_multiple:
-        type: string
+        type: integer
         example: 0.01
       maker_relayer_fee:
-        type: string
+        type: integer
         example: 0
       taker_relayer_fee:
-        type: string
+        type: integer
         example: 250
       maker_protocol_fee:
-        type: string
+        type: integer
         example: 0
       taker_protocol_fee:
-        type: string
+        type: integer
         example: 0
       maker_referrer_fee:
-        type: string
+        type: integer
         example: 0
       fee_recipient:
         type: string
         example:
         user:
-          type: string
+          type: integer
           example: 803
         profile_img_url:
           type: string
-          example: https://storage.googleapis.com/opensea-static/opensea-profile/1.png
+          example: 'https://storage.googleapis.com/opensea-static/opensea-profile/1.png'
         address:
           type: string
-          example: 0x0000000000000000000000000000000000000000
+          example: '0x0000000000000000000000000000000000000000'
         config:
           type: string
           example: 
@@ -220,35 +220,35 @@ properties:
           type: string
           example: 
       fee_method:
-        type: string
+        type: integer
         example: 1
       side:
-        type: string
+        type: integer
         example: 1
       sale_kind:
-        type: string
+        type: integer
         example: 0
       target:
         type: string
-        example: 0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656
+        example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
       how_to_call:
-        type: string
+        type: integer
         example: 0
       calldata:
         type: string
-        example: 0xf242432a0000000000000000000000000efdc0b0827a1c23e87d8548647e2e7208a5b61500000000000000000000000000000000000000000000000000000000000000000efdc0b0827a1c23e87d8548647e2e7208a5b615000000000000050000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000000
+        example: '0xf242432a0000000000000000000000000efdc0b0827a1c23e87d8548647e2e7208a5b61500000000000000000000000000000000000000000000000000000000000000000efdc0b0827a1c23e87d8548647e2e7208a5b615000000000000050000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000000'
       replacement_pattern:
         type: string
-        example: 0x000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        example: '0x000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
       static_target:
         type: string
-        example: 0xe291abab95677bc652a44f973a8e06d48464e11c
+        example: '0xe291abab95677bc652a44f973a8e06d48464e11c'
       static_extradata:
         type: string
         example: 0x589ad31c
       payment_token:
         type: string
-        example: 0xc778417e063141139fce010982780140aa0cd5ab
+        example: '0xc778417e063141139fce010982780140aa0cd5ab'
       payment_token_contract:
         type: string
         example:
@@ -260,7 +260,7 @@ properties:
           example: WETH
         address:
           type: string
-          example: 0xc778417e063141139fce010982780140aa0cd5ab
+          example: '0xc778417e063141139fce010982780140aa0cd5ab'
         image_url:
           type: string
           example: 
@@ -272,13 +272,13 @@ properties:
           example: 18
         eth_price:
           type: string
-          example: 1.000000000000000
+          example: '1.000000000000000'
         usd_price:
           type: string
           example: null
       base_price:
         type: string
-        example: 100000000000000000
+        example: '100000000000000000'
       extra:
         type: string
         example: 0
@@ -286,7 +286,7 @@ properties:
         type: string
         example: 1
       salt:
-        type: string
+        type: integer
         example: 22839843418920520788554567964226892564236005589770930826998710486881104086877
       v:
         type: string
@@ -311,7 +311,7 @@ properties:
         example: false
       prefixed_hash:
         type: string
-        example: 0x8b63aa882c6dc296b2fbefeab8f3dd0ecc5a5391520ac138fc642d3d13973ec9
+        example: '0x8b63aa882c6dc296b2fbefeab8f3dd0ecc5a5391520ac138fc642d3d13973ec9'
   last_sale:
     type: string
     example: null

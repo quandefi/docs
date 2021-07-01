@@ -34,4 +34,4 @@ properties:
     type: boolean
     example: True
   opensea_asset:
-    ./OpenSeaAsset.yaml
+    $ref: ./OpenSeaAsset.yaml
