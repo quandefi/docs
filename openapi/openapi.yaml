@@ -48,26 +48,34 @@ paths:
     $ref: 'paths/users.yaml'
   '/users/{user_id}':
     $ref: 'paths/users@{user_id}.yaml'
+
   '/markets/profiles':
     $ref: 'paths/markets@profiles.yaml'
   '/markets/profiles/{profile_id}':
     $ref: 'paths/markets@profiles@{profile_id}.yaml'
+
   '/markets/assets':
     $ref: 'paths/markets@assets.yaml'
   '/markets/assets/{asset_id}':
     $ref: 'paths/markets@assets@{asset_id}.yaml'
+  '/markets/assets/{asset_id}/orders':
+    $ref: 'paths/markets@assets@{asset_id}@orders.yaml'
+
   '/markets/products':
     $ref: 'paths/markets@products.yaml'
   '/markets/products/{product_id}':
     $ref: 'paths/markets@products@{product_id}.yaml'
+
   '/markets/orders':
     $ref: 'paths/markets@orders.yaml'
   '/markets/orders/{order_id}':
     $ref: 'paths/markets@orders@{order_id}.yaml'
+
   '/markets/collections':
     $ref: 'paths/markets@collections.yaml'
   '/markets/collections/{collection_id}':
     $ref: 'paths/markets@collections@{collection_id}.yaml'
+
   '/wallets':
     $ref: paths/wallets.yaml
   '/wallets/{wallet_id}':
@@ -78,6 +86,7 @@ paths:
     $ref: 'paths/wallets@{wallet_id}@payment_instrument@{payment_instrument_id}.yaml'
   '/wallets/encryption':
     $ref: 'paths/wallets@encryption.yaml'
+
   '/marketing/subscriptions':
     $ref: 'paths/marketing@subscriptions.yaml'
 
