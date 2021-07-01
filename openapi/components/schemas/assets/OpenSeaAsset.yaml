@@ -1,0 +1,332 @@
+type: object
+properties:
+  num_sales:
+    type: string
+    example: 0
+  background_color:
+    type: string
+    example: null
+  image_url:
+    type: string
+    example: https://lh3.googleusercontent.com/eP8Fo2cYhFRURe3af7tq6I6P1oTmyU5uWsisQqeLRvRbbqaNTUkPUebzLnk2l00CA_-mn_e4ql2W0N4XxGvM0K5B94LVQWoPd5ty
+  image_preview_url:
+    type: string
+    example: https://lh3.googleusercontent.com/eP8Fo2cYhFRURe3af7tq6I6P1oTmyU5uWsisQqeLRvRbbqaNTUkPUebzLnk2l00CA_-mn_e4ql2W0N4XxGvM0K5B94LVQWoPd5ty=s250
+  image_thumbnail_url:
+    type: string
+    example: https://lh3.googleusercontent.com/eP8Fo2cYhFRURe3af7tq6I6P1oTmyU5uWsisQqeLRvRbbqaNTUkPUebzLnk2l00CA_-mn_e4ql2W0N4XxGvM0K5B94LVQWoPd5ty=s128
+  image_original_url:
+    type: string
+    example: null
+  animation_url:
+    type: string
+    example: null
+  animation_original_url:
+    type: string
+    example: null
+  name:
+    type: string
+    example: 3D JigSaw Mask
+  description:
+    type: string
+    example: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Nonea pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.
+  asset_contract:
+    type: object
+    properties:
+      address:
+        type: string
+        example: 0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656
+      asset_contract_type:
+        type: string
+        example: semi-fungible
+      created_date:
+        type: string
+        example: 2021-05-17T18:22:26.262750
+      name:
+        type: string
+        example: OpenSea Collections
+      schema_name:
+        type: string
+        example: ERC1155
+      symbol:
+        type: string
+        example: OPENSTORE
+      total_supply:
+        type: string
+        example: null
+      description:
+        type: string
+        example: null
+      external_link:
+        type: string
+        example: null
+      image_url:
+        type: string
+        example: null
+      default_to_fiat:
+        type: string
+        example: false
+      dev_buyer_fee_basis_points:
+        type: string
+        example: 0
+      dev_seller_fee_basis_points:
+        type: string
+        example: 0
+      only_proxied_transfers:
+        type: string
+        example: false
+      opensea_buyer_fee_basis_points:
+        type: string
+        example: 0
+      opensea_seller_fee_basis_points:
+        type: string
+        example: 250
+      buyer_fee_basis_points:
+        type: string
+        example: 0
+      seller_fee_basis_points:
+        type: string
+        example: 250
+      payout_address:
+        type: string
+        example: null
+  permalink:
+    type: string
+    example: https://rinkeby.opensea.io/assets/0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656/6780722081544688904946080826264175863994209249617163133329578031500434079745
+  decimals:
+    type: string
+    example: null
+  token_metadata:
+    type: string
+    example: null
+  sell_orders:
+    type: string
+    example:
+      created_date:
+        type: string
+        example: 2021-06-27T15:41:49.483248
+      closing_date:
+        type: string
+        example: 2021-07-04T15:41:34
+      closing_extendable:
+        type: string
+        example: true
+      expiration_time:
+        type: string
+        example: 1626018094
+      listing_time:
+        type: string
+        example: 1625413294
+      order_hash:
+        type: string
+        example: 0x95df48b4d0d0a8cd2081f54e62e67f34b0ec6dd74e4d4e88f47340b918b0453d
+      metadata:
+        type: string
+        example:
+        asset:
+          type: string
+          example:
+          id:
+            type: string
+            example: 6780722081544688904946080826264175863994209249617163133329578031500434079745
+          address:
+            type: string
+            example: 0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656
+          quantity:
+            type: string
+            example: 1
+        schema:
+          type: string
+          example: ERC1155
+      exchange:
+        type: string
+        example: 0x5206e78b21ce315ce284fb24cf05e0585a93b1d9
+      maker:
+        type: string
+        example:
+        user:
+          type: string
+          example: 11966
+        profile_img_url:
+          type: string
+          example: https://storage.googleapis.com/opensea-static/opensea-profile/28.png
+        address:
+          type: string
+          example: 0x0efdc0b0827a1c23e87d8548647e2e7208a5b615
+        config:
+          type: string
+          example: 
+        discord_id:
+          type: string
+          example: 
+      taker:
+        type: string
+        example:
+        user:
+          type: string
+          example: 803
+        profile_img_url:
+          type: string
+          example: https://storage.googleapis.com/opensea-static/opensea-profile/1.png
+        address:
+          type: string
+          example: 0x0000000000000000000000000000000000000000
+        config:
+          type: string
+          example: 
+        discord_id:
+          type: string
+          example: 
+      current_price:
+        type: string
+        example: 100000000000000000.0000000000
+      current_bounty:
+        type: string
+        example: 1000000000000000
+      bounty_multiple:
+        type: string
+        example: 0.01
+      maker_relayer_fee:
+        type: string
+        example: 0
+      taker_relayer_fee:
+        type: string
+        example: 250
+      maker_protocol_fee:
+        type: string
+        example: 0
+      taker_protocol_fee:
+        type: string
+        example: 0
+      maker_referrer_fee:
+        type: string
+        example: 0
+      fee_recipient:
+        type: string
+        example:
+        user:
+          type: string
+          example: 803
+        profile_img_url:
+          type: string
+          example: https://storage.googleapis.com/opensea-static/opensea-profile/1.png
+        address:
+          type: string
+          example: 0x0000000000000000000000000000000000000000
+        config:
+          type: string
+          example: 
+        discord_id:
+          type: string
+          example: 
+      fee_method:
+        type: string
+        example: 1
+      side:
+        type: string
+        example: 1
+      sale_kind:
+        type: string
+        example: 0
+      target:
+        type: string
+        example: 0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656
+      how_to_call:
+        type: string
+        example: 0
+      calldata:
+        type: string
+        example: 0xf242432a0000000000000000000000000efdc0b0827a1c23e87d8548647e2e7208a5b61500000000000000000000000000000000000000000000000000000000000000000efdc0b0827a1c23e87d8548647e2e7208a5b615000000000000050000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000000
+      replacement_pattern:
+        type: string
+        example: 0x000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      static_target:
+        type: string
+        example: 0xe291abab95677bc652a44f973a8e06d48464e11c
+      static_extradata:
+        type: string
+        example: 0x589ad31c
+      payment_token:
+        type: string
+        example: 0xc778417e063141139fce010982780140aa0cd5ab
+      payment_token_contract:
+        type: string
+        example:
+        id:
+          type: string
+          example: 1
+        symbol:
+          type: string
+          example: WETH
+        address:
+          type: string
+          example: 0xc778417e063141139fce010982780140aa0cd5ab
+        image_url:
+          type: string
+          example: 
+        name:
+          type: string
+          example: null
+        decimals:
+          type: string
+          example: 18
+        eth_price:
+          type: string
+          example: 1.000000000000000
+        usd_price:
+          type: string
+          example: null
+      base_price:
+        type: string
+        example: 100000000000000000
+      extra:
+        type: string
+        example: 0
+      quantity:
+        type: string
+        example: 1
+      salt:
+        type: string
+        example: 22839843418920520788554567964226892564236005589770930826998710486881104086877
+      v:
+        type: string
+        example: null
+      r:
+        type: string
+        example: null
+      s:
+        type: string
+        example: null
+      approved_on_chain:
+        type: string
+        example: false
+      cancelled:
+        type: string
+        example: false
+      finalized:
+        type: string
+        example: false
+      marked_invalid:
+        type: string
+        example: false
+      prefixed_hash:
+        type: string
+        example: 0x8b63aa882c6dc296b2fbefeab8f3dd0ecc5a5391520ac138fc642d3d13973ec9
+  last_sale:
+    type: string
+    example: null
+  top_bid:
+    type: string
+    example: null
+  listing_date:
+    type: string
+    example: null
+  is_presale:
+    type: string
+    example: true
+  transfer_fee_payment_token:
+    type: string
+    example: null
+  transfer_fee:
+    type: string
+    example: null

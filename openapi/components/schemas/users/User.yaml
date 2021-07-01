@@ -3,7 +3,7 @@ properties:
   user_id:
     type: string
     description: Unique user identifier
-    example: "auth0|21re2e7123j21id1jr3urjd3r"
+    example: "21re2e7123j21id1jr3urjd3r"
   username:
     type: string
     description: Username
