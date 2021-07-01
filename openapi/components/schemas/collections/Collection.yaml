@@ -9,6 +9,10 @@ properties:
     type: array
     items:
     - $ref: ../products/Product.yaml
+  assets:
+    type: array
+    items:
+    - $ref: ../assets/Asset.yaml
   title:
     type: string
     example: British Grand Prix 2021

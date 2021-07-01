@@ -15,11 +15,14 @@ properties:
     type: string
     example: '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'
   token_id:
-    type: integer
-    example: 6780
+    type: string
+    example: '6780722081544688904946080826264175863994209249617163133329578031500434079745'
   marketplace:
     type: string
     example: notables
+  collection_id:
+    type: string
+    example: 'e9190207-1086-4336-9dc3-3f357374c5cf'
   tags:
     type: array
   creator:
